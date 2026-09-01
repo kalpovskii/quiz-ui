@@ -19,6 +19,6 @@
   },
   "iconLibrary": "lucide",
   "registries": {
-    "@quiz-ui": "https://quiz-ui.dev/r/{name}.json"
+    "@quiz-ui": "https://quiz-ui-phi.vercel.app/r/{name}.json"
   }
 }

@@ -4,12 +4,12 @@
 > shadcn-style: install individual components as source via the shadcn
 > CLI against this registry, not as an npm dependency.
 
-Setup (once): add `"@quiz-ui": "https://quiz-ui.dev/r/{name}.json"` to
+Setup (once): add `"@quiz-ui": "https://quiz-ui-phi.vercel.app/r/{name}.json"` to
 the `registries` map in the project's components.json.
 Install: npx shadcn@latest add @quiz-ui/<name>
 AI-assisted install: npx shadcn@latest mcp init  (reads components.json's
 registries map — do the setup step first)
-Full registry manifest: https://quiz-ui.dev/r/registry.json
+Full registry manifest: https://quiz-ui-phi.vercel.app/r/registry.json
 
 ## Core (installs automatically as a dependency of any component)
 
@@ -32,7 +32,7 @@ Full registry manifest: https://quiz-ui.dev/r/registry.json
 - @quiz-ui/quiz-result — renders only once the funnel is complete.
 - @quiz-ui/quiz-dialog — modal-embedded funnel wrapper.
 
-Each item is also fetchable directly at https://quiz-ui.dev/r/<name>.json
+Each item is also fetchable directly at https://quiz-ui-phi.vercel.app/r/<name>.json
 without the components.json setup step, if a raw URL is preferred.
 
 ## Conventions an agent should rely on

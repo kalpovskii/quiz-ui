@@ -11,7 +11,7 @@ quiz-ui is a trusted registry for shadcn/ui. Add the registry to your
 ```json
 {
   "registries": {
-    "@quiz-ui": "https://quiz-ui.dev/r/{name}.json"
+    "@quiz-ui": "https://quiz-ui-phi.vercel.app/r/{name}.json"
   }
 }
 ```
@@ -45,7 +45,11 @@ of steps with optional branching), fed into `<QuizRoot>`:
 
 ```tsx
 import {
-  QuizRoot, QuizProgress, QuizStep, QuizChoiceGroup, QuizNavigation,
+  QuizRoot,
+  QuizProgress,
+  QuizStep,
+  QuizChoiceGroup,
+  QuizNavigation,
 } from "@/components/ui/quiz";
 import type { QuizDefinition } from "@/components/ui/quiz/core";
 
@@ -96,7 +100,7 @@ Any component also installs directly by full URL, no `components.json`
 entry required:
 
 ```bash
-pnpm dlx shadcn@latest add https://quiz-ui.dev/r/quiz-choice.json
+pnpm dlx shadcn@latest add https://quiz-ui-phi.vercel.app/r/quiz-choice.json
 ```
 
 ## Need Help?
