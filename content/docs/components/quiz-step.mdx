@@ -1,19 +1,52 @@
 ---
 title: QuizStep
-description: Renders the active step's question heading and answer input.
+description: Renders the currently-active step's question heading and answer input.
 ---
+
+## Purpose
+
+`QuizStep` re-renders automatically whenever the engine advances to a
+new step. Use its render-prop `children` to switch on `step.type` and
+pick which input component to show.
 
 ## Installation
 
 ```bash
-npx shadcn@latest add @quiz-ui/quiz-step
+pnpm dlx shadcn@latest add @quiz-ui/quiz-step
 ```
 
-Depends on: `@quiz-ui/quiz-core`, `@quiz-ui/quiz-cn` (installed automatically).
+## Usage
 
-## About
+```tsx
+<QuizStep>
+  {(step) =>
+    step.type === "choice" ? (
+      <QuizChoiceGroup options={step.props.options as any} />
+    ) : step.type === "slider" ? (
+      <QuizSlider {...step.props} />
+    ) : null
+  }
+</QuizStep>
+```
 
-Renders the active step's question heading and answer input.
+You can also pass fixed `children` instead of a render function, if a
+step's input never varies:
 
-See `content/docs/getting-started.mdx` for how funnels are assembled end
-to end, and `app/example/` in this repo for a full working composition.
+```tsx
+<QuizStep>
+  <QuizTextInput label="Your name" />
+</QuizStep>
+```
+
+## Props
+
+| Prop           | Type                                                     | Default | Description                                                           |
+| -------------- | -------------------------------------------------------- | ------- | --------------------------------------------------------------------- |
+| `children`     | `ReactNode \| ((step: QuizStepDefinition) => ReactNode)` | —       | The step's answer input.                                              |
+| `showQuestion` | `boolean`                                                | `true`  | Whether to render `step.props.question` as a heading above the input. |
+| ...rest        | `React.HTMLAttributes<HTMLDivElement>`                   | —       | Forwarded to the wrapping `<div>`.                                    |
+
+## Notes
+
+- The question heading only renders if `step.props.question` is a string
+  — steps without a `question` prop just render the input.

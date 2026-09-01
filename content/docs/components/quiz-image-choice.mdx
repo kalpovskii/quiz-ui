@@ -1,19 +1,43 @@
 ---
 title: QuizImageChoice
-description: Visual/image-based single-select answer grid.
+description: Visual, image-based single-select answer grid.
 ---
+
+## Purpose
+
+For funnels where the answer is visual rather than text — style picks,
+product previews. Same underlying Radix RadioGroup as `QuizChoiceGroup`,
+laid out as an image grid instead of a card list.
 
 ## Installation
 
 ```bash
-npx shadcn@latest add @quiz-ui/quiz-image-choice
+pnpm dlx shadcn@latest add @quiz-ui/quiz-image-choice
 ```
 
-Depends on: `@quiz-ui/quiz-core`, `@quiz-ui/quiz-cn` (installed automatically).
+## Usage
 
-## About
+```tsx
+<QuizImageChoice
+  columns={3}
+  options={[
+    { value: "modern", label: "Modern", imageUrl: "/styles/modern.jpg" },
+    { value: "rustic", label: "Rustic", imageUrl: "/styles/rustic.jpg" },
+    { value: "minimal", label: "Minimal", imageUrl: "/styles/minimal.jpg" },
+  ]}
+/>
+```
 
-Visual/image-based single-select answer grid.
+## Props
 
-See `content/docs/getting-started.mdx` for how funnels are assembled end
-to end, and `app/example/` in this repo for a full working composition.
+| Prop        | Type                      | Default | Description                                 |
+| ----------- | ------------------------- | ------- | ------------------------------------------- |
+| `options`   | `QuizImageChoiceOption[]` | —       | `{ value, label, imageUrl }` for each tile. |
+| `columns`   | `2 \| 3`                  | `2`     | Grid columns.                               |
+| `className` | `string`                  | —       | Merged onto the grid wrapper.               |
+
+## Notes
+
+- Single-select only — there's no `multiple` variant of this component.
+  If you need multi-select image tiles, compose `QuizChoiceCheckbox`-style
+  markup yourself using `useQuizAnswers()` directly.

@@ -1,19 +1,40 @@
 ---
 title: QuizRating
-description: Star or numeric rating scale, on Radix ToggleGroup.
+description: Star or numeric rating scale, built on Radix ToggleGroup.
 ---
+
+## Purpose
+
+A single-select rating scale — stars by default, or plain numbers for
+NPS-style questions ("how likely are you to recommend..."). Backed by
+Radix ToggleGroup in single-selection mode, so arrow-key navigation
+between options works without extra code.
 
 ## Installation
 
 ```bash
-npx shadcn@latest add @quiz-ui/quiz-rating
+pnpm dlx shadcn@latest add @quiz-ui/quiz-rating
 ```
 
-Depends on: `@quiz-ui/quiz-core`, `@quiz-ui/quiz-cn` (installed automatically).
+## Usage
 
-## About
+```tsx
+<QuizRating scale={5} />
+```
 
-Star or numeric rating scale, on Radix ToggleGroup.
+```tsx
+// Numeric NPS-style scale, 1–10
+<QuizRating scale={10} numeric />
+```
 
-See `content/docs/getting-started.mdx` for how funnels are assembled end
-to end, and `app/example/` in this repo for a full working composition.
+## Props
+
+| Prop        | Type      | Default | Description                                   |
+| ----------- | --------- | ------- | --------------------------------------------- |
+| `scale`     | `number`  | `5`     | How many options to render.                   |
+| `numeric`   | `boolean` | `false` | Render numbers (1, 2, 3...) instead of stars. |
+| `className` | `string`  | —       | Merged onto the wrapper.                      |
+
+## Notes
+
+- The answer is stored as a `number`.

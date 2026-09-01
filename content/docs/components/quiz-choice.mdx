@@ -1,19 +1,60 @@
 ---
 title: QuizChoice / QuizChoiceGroup
-description: Single- and multi-select answer cards, on Radix RadioGroup/Checkbox.
+description: Single- and multi-select answer cards, built on Radix RadioGroup and Checkbox.
 ---
+
+## Purpose
+
+The most common answer input — a list of selectable cards. Single-select
+by default (Radix RadioGroup underneath); pass `multiple` for a
+multi-select variant (Radix Checkbox underneath). Either way, selection
+is wired straight to the current step's answer — no `value`/`onChange`
+wiring needed.
 
 ## Installation
 
 ```bash
-npx shadcn@latest add @quiz-ui/quiz-choice
+pnpm dlx shadcn@latest add @quiz-ui/quiz-choice
 ```
 
-Depends on: `@quiz-ui/quiz-core`, `@quiz-ui/quiz-cn` (installed automatically).
+## Usage
 
-## About
+```tsx
+<QuizChoiceGroup
+  options={[
+    { value: "cardio", label: "Cardio", description: "Running, cycling" },
+    { value: "strength", label: "Strength training" },
+  ]}
+/>
+```
 
-Single- and multi-select answer cards, on Radix RadioGroup/Checkbox.
+```tsx
+// Multi-select — answer is stored as string[]
+<QuizChoiceGroup multiple options={[
+  { value: "mornings", label: "Mornings" },
+  { value: "evenings", label: "Evenings" },
+  { value: "weekends", label: "Weekends" },
+]} />
+```
 
-See `content/docs/getting-started.mdx` for how funnels are assembled end
-to end, and `app/example/` in this repo for a full working composition.
+## Props
+
+### QuizChoiceGroup
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `options` | `QuizChoiceOption[]` | — | `{ value, label, description? }` for each card. |
+| `multiple` | `boolean` | `false` | Allow more than one selection. Answer becomes `string[]` when true. |
+| `className` | `string` | — | Merged onto the list wrapper. |
+
+### QuizChoice
+
+Exported separately for custom layouts (e.g. a grid instead of a list) —
+it's a single Radix `RadioGroup.Item`, styled. Takes `value`, `label`,
+`description?`, plus anything `RadioGroupPrimitive.Item` accepts.
+
+## Notes
+
+- With `multiple`, the answer is stored as `string[]`; without it, as a
+  plain `string`. `isStepAnswered` (used by `QuizNavigation` to enable
+  Next) treats an empty array or empty string as unanswered.

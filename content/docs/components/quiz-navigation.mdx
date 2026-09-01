@@ -1,19 +1,41 @@
 ---
 title: QuizNavigation
-description: Back/Next controls; Next disables automatically until the step is answered.
+description: Back/Next controls for the active step.
 ---
+
+## Purpose
+
+Standard funnel navigation. Next disables automatically until the
+current step is answered (via `isStepAnswered` in the engine); Back is
+hidden on the first step since there's no history yet.
 
 ## Installation
 
 ```bash
-npx shadcn@latest add @quiz-ui/quiz-navigation
+pnpm dlx shadcn@latest add @quiz-ui/quiz-navigation
 ```
 
-Depends on: `@quiz-ui/quiz-core`, `@quiz-ui/quiz-cn` (installed automatically).
+## Usage
 
-## About
+```tsx
+<QuizNavigation />
+```
 
-Back/Next controls; Next disables automatically until the step is answered.
+```tsx
+<QuizNavigation nextLabel="Continue" backLabel="Go back" />
+```
 
-See `content/docs/getting-started.mdx` for how funnels are assembled end
-to end, and `app/example/` in this repo for a full working composition.
+## Props
+
+| Prop        | Type      | Default  | Description                              |
+| ----------- | --------- | -------- | ---------------------------------------- |
+| `nextLabel` | `string`  | `"Next"` | Label on the advance button.             |
+| `backLabel` | `string`  | `"Back"` | Label on the back button.                |
+| `hideBack`  | `boolean` | `false`  | Hide Back entirely, even on later steps. |
+| `className` | `string`  | —        | Merged onto the wrapper.                 |
+
+## Notes
+
+- A step is "answered" per `isStepAnswered` in the engine: any
+  non-empty value, unless the step sets `required: false`, in which case
+  it's always considered answered.

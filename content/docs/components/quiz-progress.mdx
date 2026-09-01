@@ -1,19 +1,39 @@
 ---
 title: QuizProgress
-description: Progress bar with a 'Step N of M' label, on Radix Progress.
+description: Progress bar with a "Step N of M" label, built on Radix Progress.
 ---
+
+## Purpose
+
+Shows how far through the funnel the user is, based on the number of
+unique steps visited so far versus the total step count.
 
 ## Installation
 
 ```bash
-npx shadcn@latest add @quiz-ui/quiz-progress
+pnpm dlx shadcn@latest add @quiz-ui/quiz-progress
 ```
 
-Depends on: `@quiz-ui/quiz-core`, `@quiz-ui/quiz-cn` (installed automatically).
+## Usage
 
-## About
+```tsx
+<QuizProgress />
+```
 
-Progress bar with a 'Step N of M' label, on Radix Progress.
+```tsx
+// Hide the "Step N of M" text, keep just the bar
+<QuizProgress showLabel={false} />
+```
 
-See `content/docs/getting-started.mdx` for how funnels are assembled end
-to end, and `app/example/` in this repo for a full working composition.
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `showLabel` | `boolean` | `true` | Show the "Step N of M" text above the bar. |
+| ...rest | `React.ComponentPropsWithoutRef<typeof Progress.Root>` | — | Forwarded to Radix's `Progress.Root`. |
+
+## Notes
+
+- Progress is an estimate (`visited steps / total steps`), not a
+  guarantee of remaining steps — branching funnels can visit fewer than
+  the total step count on any given path.

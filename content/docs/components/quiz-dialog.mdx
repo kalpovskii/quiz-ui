@@ -1,19 +1,43 @@
 ---
 title: QuizDialog
-description: Modal-embedded funnel wrapper, on Radix Dialog.
+description: Modal-embedded funnel wrapper, built on Radix Dialog.
 ---
+
+## Purpose
+
+For funnels launched from a button rather than embedded inline on the
+page — wraps your funnel in a Radix Dialog, handling focus trapping and
+Escape-to-close automatically.
 
 ## Installation
 
 ```bash
-npx shadcn@latest add @quiz-ui/quiz-dialog
+pnpm dlx shadcn@latest add @quiz-ui/quiz-dialog
 ```
 
-Depends on: `@quiz-ui/quiz-cn` (installed automatically).
+## Usage
 
-## About
+```tsx
+<QuizDialog trigger={<button>Take the quiz</button>}>
+  <QuizRoot definition={quiz}>
+    <QuizProgress />
+    <QuizStep>{/* ... */}</QuizStep>
+    <QuizNavigation />
+  </QuizRoot>
+</QuizDialog>
+```
 
-Modal-embedded funnel wrapper, on Radix Dialog.
+## Props
 
-See `content/docs/getting-started.mdx` for how funnels are assembled end
-to end, and `app/example/` in this repo for a full working composition.
+| Prop        | Type                                                 | Default | Description                                                                                     |
+| ----------- | ---------------------------------------------------- | ------- | ----------------------------------------------------------------------------------------------- |
+| `trigger`   | `React.ReactNode`                                    | —       | Element that opens the dialog. Omit to control open state externally via `open`/`onOpenChange`. |
+| `children`  | `React.ReactNode`                                    | —       | Your funnel — typically a `QuizRoot` and its contents.                                          |
+| `className` | `string`                                             | —       | Merged onto the dialog content panel.                                                           |
+| ...rest     | `React.ComponentPropsWithoutRef<typeof Dialog.Root>` | —       | e.g. `open`, `onOpenChange`, `defaultOpen`.                                                     |
+
+## Notes
+
+- `QuizDialog` only depends on `quiz-cn`, not `quiz-core` — it's a plain
+  layout wrapper and doesn't touch the engine itself. The `QuizRoot`
+  you put inside it is what owns the engine, same as anywhere else.

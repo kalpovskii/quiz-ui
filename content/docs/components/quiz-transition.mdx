@@ -1,19 +1,59 @@
 ---
 title: QuizTransition
-description: Fade/slide transition wrapper for step changes. Requires a Tailwind keyframe — see the component's JSDoc.
+description: Fade/slide transition wrapper for step-to-step changes.
 ---
+
+## Purpose
+
+Wraps your `QuizStep` (or any content) so it animates in whenever the
+active step changes. Keys on the current step id so React remounts —
+and re-animates — the subtree on every transition.
 
 ## Installation
 
 ```bash
-npx shadcn@latest add @quiz-ui/quiz-transition
+pnpm dlx shadcn@latest add @quiz-ui/quiz-transition
 ```
 
-Depends on: `@quiz-ui/quiz-core`, `@quiz-ui/quiz-cn` (installed automatically).
+## Usage
 
-## About
+```tsx
+<QuizTransition>
+  <QuizStep>
+    {(step) => <QuizChoiceGroup options={step.props.options as any} />}
+  </QuizStep>
+</QuizTransition>
+```
 
-Fade/slide transition wrapper for step changes. Requires a Tailwind keyframe — see the component's JSDoc.
+## Props
 
-See `content/docs/getting-started.mdx` for how funnels are assembled end
-to end, and `app/example/` in this repo for a full working composition.
+| Prop        | Type              | Default | Description                        |
+| ----------- | ----------------- | ------- | ---------------------------------- |
+| `children`  | `React.ReactNode` | —       | Content to animate on step change. |
+| `className` | `string`          | —       | Merged onto the wrapper.           |
+
+## Required setup
+
+This component needs a Tailwind keyframe that isn't installed
+automatically by the CLI (the CLI copies component code, not CSS). Add
+this to your global stylesheet once:
+
+```css
+@layer utilities {
+  @keyframes quiz-ui-step-in {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-quiz-ui-step-in {
+    animation: quiz-ui-step-in 200ms ease-out;
+  }
+}
+```
+
+Without it, `QuizTransition` still works, just without the animation.

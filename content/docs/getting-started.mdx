@@ -1,12 +1,11 @@
 ---
 title: Getting Started
-description: Welcome to quiz-ui! This guide will help you set up and start using our quiz-funnel components in your project.
+description: Install your first quiz-ui component and assemble a working funnel.
 ---
 
-## Quick Start
+## Installation
 
-quiz-ui is a trusted registry for shadcn/ui. Add the registry to your
-`components.json` once:
+Add the registry to your project's `components.json`:
 
 ```json
 {
@@ -16,73 +15,135 @@ quiz-ui is a trusted registry for shadcn/ui. Add the registry to your
 }
 ```
 
-Now you can start adding components right away:
+Then install any component:
 
 ```bash
 pnpm dlx shadcn@latest add @quiz-ui/quiz-choice
 ```
 
-This resolves `dependencies` and `registryDependencies` automatically —
-installing `quiz-choice` also pulls in `quiz-core` (the engine) and
-`quiz-cn` (the className helper), plus the `@radix-ui/*` packages it
-needs.
+This resolves dependencies automatically — installing `quiz-choice` also
+pulls in `quiz-core` (the engine) and `quiz-cn` (the className helper),
+plus the `@radix-ui/*` packages it needs.
 
-### Initialize MCP (optional)
+## The two layers
 
-```bash
-pnpm dlx shadcn@latest mcp init
-```
+- **`quiz-core`** — headless: a state machine, branching resolution, and
+  the hooks every component reads from (`useQuizEngine`, `useQuizStep`,
+  `useQuizAnswers`). Installed automatically as a dependency.
+- **Components** (`QuizRoot`, `QuizChoiceGroup`, `QuizSlider`, ...) —
+  styled, built on Radix UI primitives. Each one reads and writes the
+  _current step's_ answer automatically — none of them take `value` or
+  `onChange` props.
 
-This adds configuration to your IDE, enabling you to use quiz-ui
-components directly in your code with AI assistance. The AI will have
-full context of every component, prop, and usage example in the
-registry.
+## Define a funnel
 
-## Assemble a funnel
-
-A funnel is a plain `QuizDefinition` object (id, entry step, and a list
-of steps with optional branching), fed into `<QuizRoot>`:
+A funnel is a plain, serializable `QuizDefinition` object — not JSX.
+Branching lives in `step.branch` rules, evaluated against the answers
+collected so far.
 
 ```tsx
-import {
-  QuizRoot,
-  QuizProgress,
-  QuizStep,
-  QuizChoiceGroup,
-  QuizNavigation,
-} from "@/components/ui/quiz";
 import type { QuizDefinition } from "@/components/ui/quiz/core";
 
 const quiz: QuizDefinition = {
-  id: "example",
+  id: "fitness-goal",
   entry: "goal",
   steps: [
     {
       id: "goal",
       type: "choice",
-      next: "done",
       props: {
-        question: "What's your goal?",
+        question: "What's your main goal?",
         options: [
           { value: "strength", label: "Build strength" },
           { value: "cardio", label: "Improve cardio" },
         ],
       },
+      // Different follow-up question depending on the answer.
+      branch: [
+        { equals: "strength", goTo: "frequency" },
+        { equals: "cardio", goTo: "distance" },
+      ],
     },
-    { id: "done", type: "result", props: {} },
+    {
+      id: "frequency",
+      type: "rating",
+      next: "email",
+      props: {
+        question: "How many days a week can you train?",
+        scale: 6,
+        numeric: true,
+      },
+    },
+    {
+      id: "distance",
+      type: "slider",
+      next: "email",
+      props: { question: "Current weekly distance (km)?", min: 0, max: 50 },
+    },
+    {
+      id: "email",
+      type: "email",
+      required: true,
+      next: "result",
+      props: { question: "Where should we send your plan?" },
+    },
+    { id: "result", type: "result", props: {} },
   ],
 };
+```
 
-export default function Page() {
+## Assemble the UI
+
+Compose `QuizRoot` with a `QuizStep` that switches on `step.type` to pick
+the right input component:
+
+```tsx
+"use client";
+
+import {
+  QuizRoot,
+  QuizProgress,
+  QuizStep,
+  QuizChoiceGroup,
+  QuizRating,
+  QuizSlider,
+  QuizEmailInput,
+  QuizNavigation,
+  QuizResult,
+} from "@/components/ui/quiz";
+
+export default function FunnelPage() {
   return (
     <QuizRoot definition={quiz} onComplete={(answers) => console.log(answers)}>
       <QuizProgress />
       <QuizStep>
-        {(step) =>
-          step.type === "choice" ? (
-            <QuizChoiceGroup options={step.props.options as any} />
-          ) : null
-        }
+        {(step) => {
+          switch (step.type) {
+            case "choice":
+              return <QuizChoiceGroup options={step.props?.options as any} />;
+            case "rating":
+              return <QuizRating scale={step.props?.scale as number} numeric />;
+            case "slider":
+              return (
+                <QuizSlider
+                  min={step.props?.min as number}
+                  max={step.props?.max as number}
+                />
+              );
+            case "email":
+              return <QuizEmailInput />;
+            case "result":
+              return (
+                <QuizResult>
+                  {(answers) => (
+                    <p>Thanks! Sending your plan to {String(answers.email)}.</p>
+                  )}
+                </QuizResult>
+              );
+            default:
+              return null;
+          }
+        }}
       </QuizStep>
       <QuizNavigation />
     </QuizRoot>
@@ -90,20 +151,16 @@ export default function Page() {
 }
 ```
 
-See `app/example/` in this repo for a complete branching funnel (a
-different follow-up question depending on the first answer, converging
-back to a shared email step and result screen).
+That's the whole pattern — every funnel you build is this same shape,
+just with a different `QuizDefinition` and a different set of `case`s in
+the switch. See the component pages in the sidebar for each input's full
+prop list.
 
-## Manual install (no CLI)
+## Next.js note
 
-Any component also installs directly by full URL, no `components.json`
-entry required:
-
-```bash
-pnpm dlx shadcn@latest add https://quiz-ui-phi.vercel.app/r/quiz-choice.json
-```
-
-## Need Help?
-
-- [GitHub Repository](https://github.com/your-org/quiz-ui)
-- [Contributing](/contributing.md)
+Every quiz-ui component needs `"use client"` — this is a fully
+client-side library (React state, context, event handlers). It's already
+included in every file the CLI installs. The one thing _you_ need to
+remember: any page or component **you** write that renders `<QuizRoot
+onComplete={...}>` with an inline callback needs `"use client"` at its
+own top too.

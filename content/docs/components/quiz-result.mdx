@@ -3,17 +3,49 @@ title: QuizResult
 description: Renders its children only once the funnel is complete.
 ---
 
+## Purpose
+
+The outcome screen. Renders nothing while the funnel is in progress;
+once the engine reaches `"complete"`, renders its children with the full
+answers map passed to a render-prop, so you can compute a score,
+recommendation, or segment from everything collected.
+
 ## Installation
 
 ```bash
-npx shadcn@latest add @quiz-ui/quiz-result
+pnpm dlx shadcn@latest add @quiz-ui/quiz-result
 ```
 
-Depends on: `@quiz-ui/quiz-core`, `@quiz-ui/quiz-cn` (installed automatically).
+## Usage
 
-## About
+```tsx
+<QuizResult>
+  {(answers) => (
+    <p>
+      Recommended plan: {scorePlan(answers)}. Sending details to {answers.email}
+      .
+    </p>
+  )}
+</QuizResult>
+```
 
-Renders its children only once the funnel is complete.
+Fixed content also works if you don't need the answers:
 
-See `content/docs/getting-started.mdx` for how funnels are assembled end
-to end, and `app/example/` in this repo for a full working composition.
+```tsx
+<QuizResult>
+  <p>Thanks for completing the quiz!</p>
+</QuizResult>
+```
+
+## Props
+
+| Prop        | Type                                                 | Default | Description                  |
+| ----------- | ---------------------------------------------------- | ------- | ---------------------------- |
+| `children`  | `ReactNode \| ((answers: QuizAnswers) => ReactNode)` | —       | Rendered only once complete. |
+| `className` | `string`                                             | —       | Merged onto the wrapper.     |
+
+## Notes
+
+- Typically the last step's `type` in your `QuizStep` switch — give the
+  final step in your `QuizDefinition` a type like `"result"` with no
+  `next`, and render `<QuizResult>` for that case.

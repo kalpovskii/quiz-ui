@@ -3,17 +3,30 @@ title: QuizTextInput
 description: Free-text answer input.
 ---
 
+## Purpose
+
+Plain text capture — names, open-ended answers, anything without a
+fixed set of options.
+
 ## Installation
 
 ```bash
-npx shadcn@latest add @quiz-ui/quiz-text-input
+pnpm dlx shadcn@latest add @quiz-ui/quiz-text-input
 ```
 
-Depends on: `@quiz-ui/quiz-core`, `@quiz-ui/quiz-cn` (installed automatically).
+## Usage
 
-## About
+```tsx
+<QuizTextInput label="What's your goal?" placeholder="e.g. Run a 5k" />
+```
 
-Free-text answer input.
+## Props
 
-See `content/docs/getting-started.mdx` for how funnels are assembled end
-to end, and `app/example/` in this repo for a full working composition.
+| Prop    | Type                                                                     | Default | Description                                                              |
+| ------- | ------------------------------------------------------------------------ | ------- | ------------------------------------------------------------------------ |
+| `label` | `string`                                                                 | —       | Optional label rendered above the input.                                 |
+| ...rest | `React.InputHTMLAttributes<HTMLInputElement>` (minus `value`/`onChange`) | —       | Forwarded to the underlying `<input>` — `placeholder`, `maxLength`, etc. |
+
+## Notes
+
+- The answer is stored as a plain `string`.

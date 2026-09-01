@@ -3,17 +3,39 @@ title: QuizSlider
 description: Single-thumb range input for numeric answers.
 ---
 
+## Purpose
+
+For numeric answers with a natural range — budget, age, quantity,
+distance. Built on Radix Slider.
+
 ## Installation
 
 ```bash
-npx shadcn@latest add @quiz-ui/quiz-slider
+pnpm dlx shadcn@latest add @quiz-ui/quiz-slider
 ```
 
-Depends on: `@quiz-ui/quiz-core`, `@quiz-ui/quiz-cn` (installed automatically).
+## Usage
 
-## About
+```tsx
+<QuizSlider min={0} max={100} step={5} />
+```
 
-Single-thumb range input for numeric answers.
+```tsx
+// Custom display formatting
+<QuizSlider min={0} max={5000} step={100} formatValue={(v) => `$${v}`} />
+```
 
-See `content/docs/getting-started.mdx` for how funnels are assembled end
-to end, and `app/example/` in this repo for a full working composition.
+## Props
+
+| Prop           | Type                        | Default           | Description                                     |
+| -------------- | --------------------------- | ----------------- | ----------------------------------------------- |
+| `min`          | `number`                    | `0`               | Minimum value.                                  |
+| `max`          | `number`                    | `100`             | Maximum value.                                  |
+| `step`         | `number`                    | `1`               | Increment step.                                 |
+| `defaultValue` | `number`                    | `(min + max) / 2` | Starting value when no answer is recorded yet.  |
+| `formatValue`  | `(value: number) => string` | —                 | Formats the large number shown above the track. |
+| `className`    | `string`                    | —                 | Merged onto the wrapper.                        |
+
+## Notes
+
+- The answer is stored as a plain `number`.

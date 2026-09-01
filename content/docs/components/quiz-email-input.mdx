@@ -3,17 +3,39 @@ title: QuizEmailInput
 description: Email capture input with basic format validation.
 ---
 
+## Purpose
+
+Like `QuizTextInput`, but `type="email"` with inline format validation
+(shown once the field has been touched and blurred).
+
 ## Installation
 
 ```bash
-npx shadcn@latest add @quiz-ui/quiz-email-input
+pnpm dlx shadcn@latest add @quiz-ui/quiz-email-input
 ```
 
-Depends on: `@quiz-ui/quiz-core`, `@quiz-ui/quiz-cn` (installed automatically).
+## Usage
 
-## About
+```tsx
+<QuizEmailInput label="Where should we send your results?" />
+```
 
-Email capture input with basic format validation.
+```tsx
+// Custom validation message
+<QuizEmailInput invalidMessage="That doesn't look like a real email." />
+```
 
-See `content/docs/getting-started.mdx` for how funnels are assembled end
-to end, and `app/example/` in this repo for a full working composition.
+## Props
+
+| Prop             | Type                                                                            | Default                          | Description                                                              |
+| ---------------- | ------------------------------------------------------------------------------- | -------------------------------- | ------------------------------------------------------------------------ |
+| `label`          | `string`                                                                        | —                                | Optional label above the input.                                          |
+| `invalidMessage` | `string`                                                                        | `"Enter a valid email address."` | Shown when the field is touched and doesn't match a basic email pattern. |
+| ...rest          | `React.InputHTMLAttributes<HTMLInputElement>` (minus `value`/`onChange`/`type`) | —                                | Forwarded to the underlying `<input>`.                                   |
+
+## Notes
+
+- Validation is format-only (regex), not a real deliverability check.
+  Whether an invalid-looking email actually blocks the user from
+  advancing is up to how you set `required` on the step definition — this
+  component only controls what's _shown_, not whether Next is disabled.
