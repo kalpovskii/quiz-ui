@@ -1,0 +1,168 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "quiz-ui",
+  "homepage": "https://quiz-ui.dev",
+  "items": [
+    {
+      "name": "quiz-cn",
+      "type": "registry:lib",
+      "title": "quiz-ui className helper",
+      "description": "className composition helper (clsx + tailwind-merge) used by every quiz-ui component.",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        { "path": "lib/utils.ts", "type": "registry:lib", "target": "lib/utils.ts" }
+      ]
+    },
+    {
+      "name": "quiz-core",
+      "type": "registry:hook",
+      "title": "Quiz engine",
+      "description": "Headless quiz engine: state machine, branching resolution, and the useQuizEngine/useQuizStep/useQuizAnswers hooks. Installed automatically as a dependency of every component below.",
+      "files": [
+        { "path": "components/ui/quiz/core/types.ts", "type": "registry:hook", "target": "components/ui/quiz/core/types.ts" },
+        { "path": "components/ui/quiz/core/engine.ts", "type": "registry:hook", "target": "components/ui/quiz/core/engine.ts" },
+        { "path": "components/ui/quiz/core/QuizProvider.tsx", "type": "registry:hook", "target": "components/ui/quiz/core/QuizProvider.tsx" },
+        { "path": "components/ui/quiz/core/hooks.ts", "type": "registry:hook", "target": "components/ui/quiz/core/hooks.ts" },
+        { "path": "components/ui/quiz/core/index.ts", "type": "registry:hook", "target": "components/ui/quiz/core/index.ts" }
+      ]
+    },
+    {
+      "name": "quiz-root",
+      "type": "registry:component",
+      "title": "QuizRoot",
+      "description": "Top-level funnel wrapper; owns the engine via QuizProvider.",
+      "registryDependencies": ["quiz-core", "quiz-cn"],
+      "files": [
+        { "path": "components/ui/quiz/quiz-root.tsx", "type": "registry:component", "target": "components/ui/quiz/quiz-root.tsx" }
+      ]
+    },
+    {
+      "name": "quiz-step",
+      "type": "registry:component",
+      "title": "QuizStep",
+      "description": "Renders the active step's question heading and answer input.",
+      "registryDependencies": ["quiz-core", "quiz-cn"],
+      "files": [
+        { "path": "components/ui/quiz/quiz-step.tsx", "type": "registry:component", "target": "components/ui/quiz/quiz-step.tsx" }
+      ]
+    },
+    {
+      "name": "quiz-progress",
+      "type": "registry:component",
+      "title": "QuizProgress",
+      "description": "Progress bar with a 'Step N of M' label, on Radix Progress.",
+      "dependencies": ["@radix-ui/react-progress"],
+      "registryDependencies": ["quiz-core", "quiz-cn"],
+      "files": [
+        { "path": "components/ui/quiz/quiz-progress.tsx", "type": "registry:component", "target": "components/ui/quiz/quiz-progress.tsx" }
+      ]
+    },
+    {
+      "name": "quiz-choice",
+      "type": "registry:component",
+      "title": "QuizChoice / QuizChoiceGroup",
+      "description": "Single- and multi-select answer cards, on Radix RadioGroup/Checkbox.",
+      "dependencies": ["@radix-ui/react-radio-group", "@radix-ui/react-checkbox", "class-variance-authority"],
+      "registryDependencies": ["quiz-core", "quiz-cn"],
+      "files": [
+        { "path": "components/ui/quiz/quiz-choice.tsx", "type": "registry:component", "target": "components/ui/quiz/quiz-choice.tsx" }
+      ]
+    },
+    {
+      "name": "quiz-image-choice",
+      "type": "registry:component",
+      "title": "QuizImageChoice",
+      "description": "Visual/image-based single-select answer grid.",
+      "dependencies": ["@radix-ui/react-radio-group"],
+      "registryDependencies": ["quiz-core", "quiz-cn"],
+      "files": [
+        { "path": "components/ui/quiz/quiz-image-choice.tsx", "type": "registry:component", "target": "components/ui/quiz/quiz-image-choice.tsx" }
+      ]
+    },
+    {
+      "name": "quiz-slider",
+      "type": "registry:component",
+      "title": "QuizSlider",
+      "description": "Single-thumb range input for numeric answers.",
+      "dependencies": ["@radix-ui/react-slider"],
+      "registryDependencies": ["quiz-core", "quiz-cn"],
+      "files": [
+        { "path": "components/ui/quiz/quiz-slider.tsx", "type": "registry:component", "target": "components/ui/quiz/quiz-slider.tsx" }
+      ]
+    },
+    {
+      "name": "quiz-rating",
+      "type": "registry:component",
+      "title": "QuizRating",
+      "description": "Star or numeric rating scale, on Radix ToggleGroup.",
+      "dependencies": ["@radix-ui/react-toggle-group"],
+      "registryDependencies": ["quiz-core", "quiz-cn"],
+      "files": [
+        { "path": "components/ui/quiz/quiz-rating.tsx", "type": "registry:component", "target": "components/ui/quiz/quiz-rating.tsx" }
+      ]
+    },
+    {
+      "name": "quiz-text-input",
+      "type": "registry:component",
+      "title": "QuizTextInput",
+      "description": "Free-text answer input.",
+      "dependencies": ["@radix-ui/react-label"],
+      "registryDependencies": ["quiz-core", "quiz-cn"],
+      "files": [
+        { "path": "components/ui/quiz/quiz-text-input.tsx", "type": "registry:component", "target": "components/ui/quiz/quiz-text-input.tsx" }
+      ]
+    },
+    {
+      "name": "quiz-email-input",
+      "type": "registry:component",
+      "title": "QuizEmailInput",
+      "description": "Email capture input with basic format validation.",
+      "dependencies": ["@radix-ui/react-label"],
+      "registryDependencies": ["quiz-core", "quiz-cn"],
+      "files": [
+        { "path": "components/ui/quiz/quiz-email-input.tsx", "type": "registry:component", "target": "components/ui/quiz/quiz-email-input.tsx" }
+      ]
+    },
+    {
+      "name": "quiz-navigation",
+      "type": "registry:component",
+      "title": "QuizNavigation",
+      "description": "Back/Next controls; Next disables automatically until the step is answered.",
+      "registryDependencies": ["quiz-core", "quiz-cn"],
+      "files": [
+        { "path": "components/ui/quiz/quiz-navigation.tsx", "type": "registry:component", "target": "components/ui/quiz/quiz-navigation.tsx" }
+      ]
+    },
+    {
+      "name": "quiz-transition",
+      "type": "registry:component",
+      "title": "QuizTransition",
+      "description": "Fade/slide transition wrapper for step changes. Requires a Tailwind keyframe — see the component's JSDoc.",
+      "registryDependencies": ["quiz-core", "quiz-cn"],
+      "files": [
+        { "path": "components/ui/quiz/quiz-transition.tsx", "type": "registry:component", "target": "components/ui/quiz/quiz-transition.tsx" }
+      ]
+    },
+    {
+      "name": "quiz-result",
+      "type": "registry:component",
+      "title": "QuizResult",
+      "description": "Renders its children only once the funnel is complete.",
+      "registryDependencies": ["quiz-core", "quiz-cn"],
+      "files": [
+        { "path": "components/ui/quiz/quiz-result.tsx", "type": "registry:component", "target": "components/ui/quiz/quiz-result.tsx" }
+      ]
+    },
+    {
+      "name": "quiz-dialog",
+      "type": "registry:component",
+      "title": "QuizDialog",
+      "description": "Modal-embedded funnel wrapper, on Radix Dialog.",
+      "dependencies": ["@radix-ui/react-dialog"],
+      "registryDependencies": ["quiz-cn"],
+      "files": [
+        { "path": "components/ui/quiz/quiz-dialog.tsx", "type": "registry:component", "target": "components/ui/quiz/quiz-dialog.tsx" }
+      ]
+    }
+  ]
+}

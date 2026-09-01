@@ -1,0 +1,6 @@
+node_modules
+.next
+public/r/*.json
+!public/r/.gitkeep
+.env*
+*.log

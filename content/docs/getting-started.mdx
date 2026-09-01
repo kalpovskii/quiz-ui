@@ -1,0 +1,105 @@
+---
+title: Getting Started
+description: Welcome to quiz-ui! This guide will help you set up and start using our quiz-funnel components in your project.
+---
+
+## Quick Start
+
+quiz-ui is a trusted registry for shadcn/ui. Add the registry to your
+`components.json` once:
+
+```json
+{
+  "registries": {
+    "@quiz-ui": "https://quiz-ui.dev/r/{name}.json"
+  }
+}
+```
+
+Now you can start adding components right away:
+
+```bash
+pnpm dlx shadcn@latest add @quiz-ui/quiz-choice
+```
+
+This resolves `dependencies` and `registryDependencies` automatically —
+installing `quiz-choice` also pulls in `quiz-core` (the engine) and
+`quiz-cn` (the className helper), plus the `@radix-ui/*` packages it
+needs.
+
+### Initialize MCP (optional)
+
+```bash
+pnpm dlx shadcn@latest mcp init
+```
+
+This adds configuration to your IDE, enabling you to use quiz-ui
+components directly in your code with AI assistance. The AI will have
+full context of every component, prop, and usage example in the
+registry.
+
+## Assemble a funnel
+
+A funnel is a plain `QuizDefinition` object (id, entry step, and a list
+of steps with optional branching), fed into `<QuizRoot>`:
+
+```tsx
+import {
+  QuizRoot, QuizProgress, QuizStep, QuizChoiceGroup, QuizNavigation,
+} from "@/components/ui/quiz";
+import type { QuizDefinition } from "@/components/ui/quiz/core";
+
+const quiz: QuizDefinition = {
+  id: "example",
+  entry: "goal",
+  steps: [
+    {
+      id: "goal",
+      type: "choice",
+      next: "done",
+      props: {
+        question: "What's your goal?",
+        options: [
+          { value: "strength", label: "Build strength" },
+          { value: "cardio", label: "Improve cardio" },
+        ],
+      },
+    },
+    { id: "done", type: "result", props: {} },
+  ],
+};
+
+export default function Page() {
+  return (
+    <QuizRoot definition={quiz} onComplete={(answers) => console.log(answers)}>
+      <QuizProgress />
+      <QuizStep>
+        {(step) =>
+          step.type === "choice" ? (
+            <QuizChoiceGroup options={step.props.options as any} />
+          ) : null
+        }
+      </QuizStep>
+      <QuizNavigation />
+    </QuizRoot>
+  );
+}
+```
+
+See `app/example/` in this repo for a complete branching funnel (a
+different follow-up question depending on the first answer, converging
+back to a shared email step and result screen).
+
+## Manual install (no CLI)
+
+Any component also installs directly by full URL, no `components.json`
+entry required:
+
+```bash
+pnpm dlx shadcn@latest add https://quiz-ui.dev/r/quiz-choice.json
+```
+
+## Need Help?
+
+- [GitHub Repository](https://github.com/your-org/quiz-ui)
+- [Contributing](/contributing.md)

@@ -1,0 +1,18 @@
+{
+  "title": "Components",
+  "pages": [
+    "quiz-root",
+    "quiz-step",
+    "quiz-progress",
+    "quiz-choice",
+    "quiz-image-choice",
+    "quiz-slider",
+    "quiz-rating",
+    "quiz-text-input",
+    "quiz-email-input",
+    "quiz-navigation",
+    "quiz-transition",
+    "quiz-result",
+    "quiz-dialog"
+  ]
+}

@@ -1,0 +1,46 @@
+# quiz-ui
+
+> Radix-based component library for building quiz funnels. Distributed
+> shadcn-style: install individual components as source via the shadcn
+> CLI against this registry, not as an npm dependency.
+
+Setup (once): add `"@quiz-ui": "https://quiz-ui.dev/r/{name}.json"` to
+the `registries` map in the project's components.json.
+Install: npx shadcn@latest add @quiz-ui/<name>
+AI-assisted install: npx shadcn@latest mcp init  (reads components.json's
+registries map — do the setup step first)
+Full registry manifest: https://quiz-ui.dev/r/registry.json
+
+## Core (installs automatically as a dependency of any component)
+
+- @quiz-ui/quiz-core — headless engine: QuizDefinition, QuizProvider, useQuizEngine, useQuizStep, useQuizAnswers.
+- @quiz-ui/quiz-cn — className helper (clsx + tailwind-merge).
+
+## Components
+
+- @quiz-ui/quiz-root — top-level funnel wrapper, owns the engine.
+- @quiz-ui/quiz-step — renders the active step's question + input.
+- @quiz-ui/quiz-progress — progress bar with step count.
+- @quiz-ui/quiz-choice — single/multi-select answer cards.
+- @quiz-ui/quiz-image-choice — visual/image-based single-select grid.
+- @quiz-ui/quiz-slider — numeric range answer.
+- @quiz-ui/quiz-rating — star or numeric rating scale.
+- @quiz-ui/quiz-text-input — free-text answer.
+- @quiz-ui/quiz-email-input — email capture with format validation.
+- @quiz-ui/quiz-navigation — back/next controls, auto-disables until answered.
+- @quiz-ui/quiz-transition — fade/slide animation between steps.
+- @quiz-ui/quiz-result — renders only once the funnel is complete.
+- @quiz-ui/quiz-dialog — modal-embedded funnel wrapper.
+
+Each item is also fetchable directly at https://quiz-ui.dev/r/<name>.json
+without the components.json setup step, if a raw URL is preferred.
+
+## Conventions an agent should rely on
+
+- Every exported component/hook is named `Quiz<Noun>` / `useQuiz<Noun>`. No abbreviations.
+- Funnels are defined as plain, serializable `QuizDefinition` objects (id, entry, steps[]),
+  not JSX — branching lives in `step.branch` rules, not in component logic.
+- Individual answer components (QuizChoiceGroup, QuizSlider, etc.) read/write the *current*
+  step's answer automatically via `useQuizAnswers()` — they take no `value`/`onChange` props.
+- To assemble a funnel: QuizRoot > QuizProgress + QuizStep (switch on `step.type`) + QuizNavigation.
+  Full working example: app/example/page.tsx in this repo.

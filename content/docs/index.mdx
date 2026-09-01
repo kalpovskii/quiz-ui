@@ -1,0 +1,22 @@
+---
+title: Introduction
+description: quiz-ui is a shadcn/ui-compatible registry of Radix-based components for building quiz funnels.
+---
+
+## What this is
+
+quiz-ui is a set of components for building quiz funnels — multi-step
+question flows with branching, progress tracking, and result screens —
+built on Radix UI primitives and distributed as source, shadcn-style.
+
+Two layers:
+
+- **Engine** (`@quiz-ui/quiz-core`) — headless: a state machine, branching
+  resolution, and hooks. Funnels are defined as plain, serializable
+  `QuizDefinition` objects, not JSX.
+- **Components** (`quiz-root`, `quiz-choice`, `quiz-slider`, ...) — styled,
+  built on Radix primitives, read/write the current step's answer
+  automatically via the engine's hooks.
+
+See [Getting Started](/docs/getting-started) to install your first
+component, or browse [Components](/docs/components) for the full list.
