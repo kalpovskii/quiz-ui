@@ -5,18 +5,46 @@ description: quiz-ui is a shadcn/ui-compatible registry of Radix-based component
 
 ## What this is
 
-quiz-ui is a set of components for building quiz funnels — multi-step
-question flows with branching, progress tracking, and result screens —
-built on Radix UI primitives and distributed as source, shadcn-style.
+quiz-ui is a set of components for building **quiz funnels** — multi-step
+question flows with branching, progress tracking, and a result screen —
+built on [Radix UI](https://www.radix-ui.com/) primitives and
+distributed as source code, the same way [shadcn/ui](https://ui.shadcn.com)
+distributes its components.
 
-Two layers:
+There's no npm package to install. Instead, you install exactly the
+components you need — as plain `.tsx` files copied straight into your
+own project — through the `shadcn` CLI, pointed at this registry. You
+own the code from the moment it lands in your project: no black-box
+dependency, no version to keep in sync, nothing hidden behind an import
+from `node_modules`.
 
-- **Engine** (`@quiz-ui/quiz-core`) — headless: a state machine, branching
-  resolution, and hooks. Funnels are defined as plain, serializable
-  `QuizDefinition` objects, not JSX.
-- **Components** (`quiz-root`, `quiz-choice`, `quiz-slider`, ...) — styled,
-  built on Radix primitives, read/write the current step's answer
-  automatically via the engine's hooks.
+## The two layers
 
-See [Getting Started](/docs/getting-started) to install your first
-component, or browse [Components](/docs/components) for the full list.
+- **Engine** (`@quiz-ui/quiz-core`) — headless. A state machine,
+  branching resolution, and the hooks every component reads from
+  (`useQuizEngine`, `useQuizStep`, `useQuizAnswers`). A funnel is defined
+  as a plain, serializable `QuizDefinition` object — not JSX — so
+  branching logic lives as data, separate from how anything looks.
+- **Components** (`QuizRoot`, `QuizChoiceGroup`, `QuizSlider`, `QuizRating`,
+  and the rest) — styled, built on Radix primitives. Each one reads and
+  writes the _current step's_ answer automatically. Restyling a
+  component never touches branching logic, and extending branching logic
+  never touches component code.
+
+## See it in action
+
+The [`/example`](/example) page runs a complete funnel using every
+component in the registry back to back — single-select, multi-select,
+image choice, a slider, a rating scale, free text, an email capture, and
+a result screen that reads back everything you answered. It's wired up
+exactly this way: one `QuizDefinition`, one `QuizStep` switching on `step.type`,
+and the navigation/progress/transition components wrapped around it.
+
+Click through it end to end to get a feel for how a funnel actually
+behaves before wiring up your own — then use the sidebar to look up any
+individual component's props.
+
+## Where to go next
+
+- Sidebar → **Components** — full prop reference for every component,
+  one page each.

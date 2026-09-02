@@ -32,22 +32,27 @@ export function QuizRating({ scale = 5, numeric = false, className }: QuizRating
       onValueChange={(v) => {
         if (v) setValue(Number(v));
       }}
-      className={cn("flex gap-2", className)}
+      className={cn("mx-auto flex gap-2", className)}
       aria-label="Rating"
     >
-      {Array.from({ length: scale }, (_, i) => i + 1).map((n) => (
-        <ToggleGroupPrimitive.Item
-          key={n}
-          value={String(n)}
-          className={cn(
-            "flex h-10 w-10 items-center justify-center rounded-md border border-border text-sm font-medium text-muted-foreground transition-colors",
-            "hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-            "data-[state=on]:border-primary data-[state=on]:bg-primary data-[state=on]:text-primary-foreground"
-          )}
-        >
-          {numeric ? n : "★"}
-        </ToggleGroupPrimitive.Item>
-      ))}
+      {Array.from({ length: scale }, (_, i) => i + 1).map((n) => {
+        const isOn = selected === String(n);
+        return (
+          <ToggleGroupPrimitive.Item
+            key={n}
+            value={String(n)}
+            className={cn(
+              "flex h-10 w-10 items-center justify-center rounded-md border-2 text-sm font-semibold transition-colors",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground",
+              isOn
+                ? "border-foreground bg-white text-black"
+                : "border-foreground/20 text-foreground/60 hover:border-foreground/50 hover:text-foreground"
+            )}
+          >
+            {numeric ? n : "★"}
+          </ToggleGroupPrimitive.Item>
+        );
+      })}
     </ToggleGroupPrimitive.Root>
   );
 }

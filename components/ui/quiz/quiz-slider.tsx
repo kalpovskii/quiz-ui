@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import * as SliderPrimitive from "@radix-ui/react-slider";
 import { useQuizAnswers } from "./core";
 import { cn } from "@/lib/utils";
@@ -47,11 +46,11 @@ export function QuizSlider({
         value={[numericValue]}
         onValueChange={([v]) => setValue(v)}
       >
-        <SliderPrimitive.Track className="relative h-1.5 w-full grow rounded-full bg-muted">
-          <SliderPrimitive.Range className="absolute h-full rounded-full bg-primary" />
+        <SliderPrimitive.Track className="relative h-1.5 w-full grow rounded-full bg-white/20">
+          <SliderPrimitive.Range className="absolute h-full rounded-full bg-foreground" />
         </SliderPrimitive.Track>
         <SliderPrimitive.Thumb
-          className="block h-5 w-5 rounded-full border-2 border-primary bg-background shadow transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="block h-5 w-5 rounded-full border-2 border-background bg-foreground shadow-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
           aria-label="Value"
         />
       </SliderPrimitive.Root>
