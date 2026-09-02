@@ -15,6 +15,8 @@ export interface QuizStepProps
   children?: React.ReactNode | ((step: QuizStepDefinition) => React.ReactNode);
   /** Renders `step.props.question` above the input, if present. Default: true. */
   showQuestion?: boolean;
+  /** Applied to the question heading, if `showQuestion` and `step.props.question` are set. */
+  questionClassName?: string;
 }
 
 /**
@@ -37,6 +39,7 @@ export function QuizStep({
   children,
   showQuestion = true,
   className,
+  questionClassName,
   ...props
 }: QuizStepProps) {
   const { step } = useQuizStep();
@@ -44,13 +47,13 @@ export function QuizStep({
 
   return (
     <div
-      className={cn("flex flex-col gap-4")}
+      className={className}
       role="group"
       aria-labelledby={question ? `${step.id}-question` : undefined}
       {...props}
     >
       {showQuestion && question ? (
-        <h2 id={`${step.id}-question`} className={cn("text-lg font-medium text-foreground", className)}>
+        <h2 id={`${step.id}-question`} className={questionClassName}>
           {question}
         </h2>
       ) : null}

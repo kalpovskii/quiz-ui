@@ -1,5 +1,6 @@
 "use client";
 
+import * as React from "react";
 import * as SliderPrimitive from "@radix-ui/react-slider";
 import { useQuizAnswers } from "./core";
 import { cn } from "@/lib/utils";
@@ -8,18 +9,25 @@ export interface QuizSliderProps {
   min?: number;
   max?: number;
   step?: number;
-  /** Used when no answer has been recorded yet. */
   defaultValue?: number;
-  /** Formats the displayed value, e.g. `(v) => `$${v}`` for currency. */
   formatValue?: (value: number) => string;
+  /** Applied to the outer wrapper (value display + track stacked vertically). */
   className?: string;
+  /** Applied to the value display text above the track. */
+  valueClassName?: string;
+  /** Applied to the track — this is what needs a visible background/height. */
+  trackClassName?: string;
+  /** Applied to the filled portion of the track. */
+  rangeClassName?: string;
+  /** Applied to the draggable thumb. */
+  thumbClassName?: string;
 }
 
 /**
- * Single-thumb range input for numeric answers (budget, age, quantity).
- *
- * @example
- * <QuizSlider min={0} max={100} step={5} formatValue={(v) => `${v}%`} />
+ * Fully headless — no default colors, sizing, or borders. Every visual
+ * choice lives in the className props; only structural/functional
+ * classes (positioning Radix needs to compute drag behavior) are baked
+ * in. Style it entirely from the consumer side.
  */
 export function QuizSlider({
   min = 0,
@@ -28,6 +36,10 @@ export function QuizSlider({
   defaultValue,
   formatValue,
   className,
+  valueClassName,
+  trackClassName,
+  rangeClassName,
+  thumbClassName,
 }: QuizSliderProps) {
   const { value, setValue } = useQuizAnswers();
   const numericValue =
@@ -35,24 +47,21 @@ export function QuizSlider({
 
   return (
     <div className={cn("flex flex-col gap-3", className)}>
-      <span className="text-2xl font-semibold text-foreground" aria-live="polite">
+      <span className={cn(valueClassName)} aria-live="polite">
         {formatValue ? formatValue(numericValue) : numericValue}
       </span>
       <SliderPrimitive.Root
-        className="relative flex h-5 w-full touch-none select-none items-center"
+        className="relative flex w-full touch-none select-none items-center"
         min={min}
         max={max}
         step={step}
         value={[numericValue]}
         onValueChange={([v]) => setValue(v)}
       >
-        <SliderPrimitive.Track className="relative h-1.5 w-full grow rounded-full bg-white/20">
-          <SliderPrimitive.Range className="absolute h-full rounded-full bg-foreground" />
+        <SliderPrimitive.Track className={cn("relative w-full grow", trackClassName)}>
+          <SliderPrimitive.Range className={cn("absolute h-full", rangeClassName)} />
         </SliderPrimitive.Track>
-        <SliderPrimitive.Thumb
-          className="block h-5 w-5 rounded-full border-2 border-background bg-foreground shadow-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
-          aria-label="Value"
-        />
+        <SliderPrimitive.Thumb className={cn("block", thumbClassName)} aria-label="Value" />
       </SliderPrimitive.Root>
     </div>
   );

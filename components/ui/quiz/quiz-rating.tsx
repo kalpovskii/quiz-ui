@@ -6,22 +6,29 @@ import { useQuizAnswers } from "./core";
 import { cn } from "@/lib/utils";
 
 export interface QuizRatingProps {
-  /** Number of rating options. Default: 5. */
   scale?: number;
-  /** Render numbers (1, 2, 3...) instead of stars. Default: false. */
   numeric?: boolean;
+  /** Applied to the row wrapping all items. */
   className?: string;
+  /** Applied to every item, regardless of state. */
+  itemClassName?: string;
+  /** Applied on top of `itemClassName` when that item is the selected one. */
+  activeItemClassName?: string;
 }
 
 /**
- * Single-select rating scale (stars by default, or numbers for NPS-style
- * questions). Backed by Radix ToggleGroup in single-selection mode so
- * arrow-key navigation between options works out of the box.
- *
- * @example
- * <QuizRating scale={10} numeric />
+ * Fully headless. The active/inactive state is computed in React (not
+ * via a `data-[state=on]:` CSS selector), so it's immune to any external
+ * stylesheet with higher specificity silently overriding it — a real bug
+ * this project hit once already. Style every state via the className props.
  */
-export function QuizRating({ scale = 5, numeric = false, className }: QuizRatingProps) {
+export function QuizRating({
+  scale = 5,
+  numeric = false,
+  className,
+  itemClassName,
+  activeItemClassName,
+}: QuizRatingProps) {
   const { value, setValue } = useQuizAnswers();
   const selected = typeof value === "number" ? String(value) : undefined;
 
@@ -32,7 +39,7 @@ export function QuizRating({ scale = 5, numeric = false, className }: QuizRating
       onValueChange={(v) => {
         if (v) setValue(Number(v));
       }}
-      className={cn("mx-auto flex gap-2", className)}
+      className={cn("flex", className)}
       aria-label="Rating"
     >
       {Array.from({ length: scale }, (_, i) => i + 1).map((n) => {
@@ -41,13 +48,7 @@ export function QuizRating({ scale = 5, numeric = false, className }: QuizRating
           <ToggleGroupPrimitive.Item
             key={n}
             value={String(n)}
-            className={cn(
-              "flex h-10 w-10 items-center justify-center rounded-md border-2 text-sm font-semibold transition-colors",
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground",
-              isOn
-                ? "border-foreground bg-white text-black"
-                : "border-foreground/20 text-foreground/60 hover:border-foreground/50 hover:text-foreground"
-            )}
+            className={cn(itemClassName, isOn && activeItemClassName)}
           >
             {numeric ? n : "★"}
           </ToggleGroupPrimitive.Item>

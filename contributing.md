@@ -13,15 +13,15 @@ similar.
 
 ## Structure
 
-| Path                    | Description                                             |
-| ------------------------ | -------------------------------------------------------- |
-| `/app`                   | The Next.js application for the website (docs + example). |
-| `/components`            | The React components — `components/ui/quiz/` is the registry source. |
-| `/content/docs`          | MDX documentation, one page per component.               |
-| `/lib`                   | `utils.ts` — the shared `cn()` helper.                    |
-| `/hooks`                 | Site-chrome hooks (not registry hooks — those live in `components/ui/quiz/core`). |
-| `/registry.json`         | The registry manifest for the components.                 |
-| `/public/r`              | Generated registry JSON output — do not hand-edit.        |
+| Path             | Description                                                                       |
+| ---------------- | --------------------------------------------------------------------------------- |
+| `/app`           | The Next.js application for the website (docs + example).                         |
+| `/components`    | The React components — `components/ui/quiz/` is the registry source.              |
+| `/content/docs`  | MDX documentation, one page per component.                                        |
+| `/lib`           | `utils.ts` — the shared `cn()` helper.                                            |
+| `/hooks`         | Site-chrome hooks (not registry hooks — those live in `components/ui/quiz/core`). |
+| `/registry.json` | The registry manifest for the components.                                         |
+| `/public/r`      | Generated registry JSON output — do not hand-edit.                                |
 
 ## Development
 
@@ -32,7 +32,7 @@ You can fork this repo by clicking the fork button in the top right corner of th
 ### Clone on your local machine
 
 ```bash
-git clone https://github.com/your-username/quiz-ui.git
+git clone https://github.com/kalpovskii/quiz-ui.git
 ```
 
 ### Navigate to project directory

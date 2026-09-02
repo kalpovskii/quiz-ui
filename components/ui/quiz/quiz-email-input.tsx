@@ -3,28 +3,35 @@
 import * as React from "react";
 import * as LabelPrimitive from "@radix-ui/react-label";
 import { useQuizAnswers } from "./core";
-import { cn } from "@/lib/utils";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export interface QuizEmailInputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "value" | "onChange" | "type"> {
   label?: string;
-  /** Shown when the field has been touched and doesn't match a basic email pattern. */
   invalidMessage?: string;
+  wrapperClassName?: string;
+  labelClassName?: string;
+  /** Applied on top of `className` when the field is touched and invalid. */
+  invalidClassName?: string;
+  errorMessageClassName?: string;
 }
 
-/**
- * Email capture input. Validation is intentionally basic (format check
- * only, no verification) — this component only decides what to *show*;
- * whether an invalid-looking email blocks advancing is up to how you use
- * `isCurrentStepAnswered` / `required` on the step definition.
- *
- * @example
- * <QuizEmailInput label="Where should we send your results?" />
- */
 export const QuizEmailInput = React.forwardRef<HTMLInputElement, QuizEmailInputProps>(
-  ({ label, invalidMessage = "Enter a valid email address.", className, id, ...props }, ref) => {
+  (
+    {
+      label,
+      invalidMessage = "Enter a valid email address.",
+      wrapperClassName,
+      labelClassName,
+      invalidClassName,
+      errorMessageClassName,
+      className,
+      id,
+      ...props
+    },
+    ref
+  ) => {
     const { value, setValue } = useQuizAnswers();
     const [touched, setTouched] = React.useState(false);
     const inputId = id ?? React.useId();
@@ -32,12 +39,9 @@ export const QuizEmailInput = React.forwardRef<HTMLInputElement, QuizEmailInputP
     const isInvalid = touched && stringValue.length > 0 && !EMAIL_PATTERN.test(stringValue);
 
     return (
-      <div className="flex flex-col gap-1.5">
+      <div className={wrapperClassName}>
         {label ? (
-          <LabelPrimitive.Root
-            htmlFor={inputId}
-            className="text-sm font-medium text-foreground"
-          >
+          <LabelPrimitive.Root htmlFor={inputId} className={labelClassName}>
             {label}
           </LabelPrimitive.Root>
         ) : null}
@@ -48,20 +52,13 @@ export const QuizEmailInput = React.forwardRef<HTMLInputElement, QuizEmailInputP
           inputMode="email"
           autoComplete="email"
           aria-invalid={isInvalid}
-          className={cn(
-            "h-10 w-full rounded-md border border-border bg-background px-3 text-sm text-foreground",
-            "placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-            isInvalid && "border-destructive focus-visible:ring-destructive",
-            className
-          )}
+          className={isInvalid && invalidClassName ? `${className ?? ""} ${invalidClassName}` : className}
           value={stringValue}
           onChange={(e) => setValue(e.target.value)}
           onBlur={() => setTouched(true)}
           {...props}
         />
-        {isInvalid ? (
-          <span className="text-xs text-destructive">{invalidMessage}</span>
-        ) : null}
+        {isInvalid ? <span className={errorMessageClassName}>{invalidMessage}</span> : null}
       </div>
     );
   }
