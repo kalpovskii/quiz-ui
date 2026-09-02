@@ -1,0 +1,218 @@
+---
+title: Getting Started
+description: Install your first quiz-ui component and assemble a working funnel.
+---
+
+This guide walks through installing a component, defining a funnel, and
+wiring up the UI. If you'd rather see it running before reading, check
+out the [`/example`](/example) page first — it uses every component
+described here, chained into one funnel.
+
+## Installation
+
+Add the registry to your project's `components.json`:
+
+```json
+{
+  "registries": {
+    "@quiz-ui": "https://quiz-ui-phi.vercel.app/r/{name}.json"
+  }
+}
+```
+
+Then install any component:
+
+```bash
+pnpm dlx shadcn@latest add @quiz-ui/quiz-choice
+```
+
+This resolves dependencies automatically — installing `quiz-choice` also
+pulls in `quiz-core` (the engine) and `quiz-cn` (the className helper),
+plus the `@radix-ui/*` packages it needs. Repeat for whichever other
+components you want; see the sidebar for the full list, or install
+everything used in the example at once:
+
+```bash
+pnpm dlx shadcn@latest add @quiz-ui/quiz-root @quiz-ui/quiz-step @quiz-ui/quiz-progress \
+  @quiz-ui/quiz-transition @quiz-ui/quiz-navigation @quiz-ui/quiz-choice \
+  @quiz-ui/quiz-image-choice @quiz-ui/quiz-slider @quiz-ui/quiz-rating \
+  @quiz-ui/quiz-text-input @quiz-ui/quiz-email-input @quiz-ui/quiz-result
+```
+
+## The two layers
+
+- **`quiz-core`** — headless: a state machine, branching resolution, and
+  the hooks every component reads from (`useQuizEngine`, `useQuizStep`,
+  `useQuizAnswers`). Installed automatically as a dependency.
+- **Components** (`QuizRoot`, `QuizChoiceGroup`, `QuizSlider`, ...) —
+  styled, built on Radix UI primitives. Each one reads and writes the
+  _current step's_ answer automatically — none of them take `value` or
+  `onChange` props.
+
+## Define a funnel
+
+A funnel is a plain, serializable `QuizDefinition` object — not JSX.
+Branching lives in `step.branch` rules, evaluated against the answers
+collected so far.
+
+```tsx
+import type { QuizDefinition } from "@/components/ui/quiz/core";
+
+const quiz: QuizDefinition = {
+  id: "fitness-goal",
+  entry: "goal",
+  steps: [
+    {
+      id: "goal",
+      type: "choice",
+      props: {
+        question: "What's your main goal?",
+        options: [
+          { value: "strength", label: "Build strength" },
+          { value: "cardio", label: "Improve cardio" },
+        ],
+      },
+      // Different follow-up question depending on the answer.
+      branch: [
+        { equals: "strength", goTo: "frequency" },
+        { equals: "cardio", goTo: "distance" },
+      ],
+    },
+    {
+      id: "frequency",
+      type: "rating",
+      next: "email",
+      props: {
+        question: "How many days a week can you train?",
+        scale: 6,
+        numeric: true,
+      },
+    },
+    {
+      id: "distance",
+      type: "slider",
+      next: "email",
+      props: { question: "Current weekly distance (km)?", min: 0, max: 50 },
+    },
+    {
+      id: "email",
+      type: "email",
+      required: true,
+      next: "result",
+      props: { question: "Where should we send your plan?" },
+    },
+    { id: "result", type: "result", required: false, props: {} },
+  ],
+};
+```
+
+Note the last step: a step with no `next` and no `branch` is a terminal
+step — the engine marks the funnel complete once the user advances past
+it. Give it `required: false` so `QuizNavigation`'s Next button isn't
+stuck waiting for an answer nothing will ever provide on that step. See
+[`/example`](/example) for a pattern that auto-advances through a
+terminal step entirely, if you'd rather not require an extra click.
+
+## Assemble the UI
+
+Compose `QuizRoot` with a `QuizStep` that switches on `step.type` to pick
+the right input component:
+
+```tsx
+"use client";
+
+import {
+  QuizRoot,
+  QuizProgress,
+  QuizStep,
+  QuizChoiceGroup,
+  QuizRating,
+  QuizSlider,
+  QuizEmailInput,
+  QuizNavigation,
+  QuizResult,
+} from "@/components/ui/quiz";
+
+export default function FunnelPage() {
+  return (
+    <QuizRoot definition={quiz} onComplete={(answers) => console.log(answers)}>
+      <QuizProgress />
+      <QuizStep>
+        {(step) => {
+          switch (step.type) {
+            case "choice":
+              return <QuizChoiceGroup options={step.props?.options as any} />;
+            case "rating":
+              return <QuizRating scale={step.props?.scale as number} numeric />;
+            case "slider":
+              return (
+                <QuizSlider
+                  min={step.props?.min as number}
+                  max={step.props?.max as number}
+                />
+              );
+            case "email":
+              return <QuizEmailInput />;
+            case "result":
+              return (
+                <QuizResult>
+                  {(answers) => (
+                    <p>Thanks! Sending your plan to {String(answers.email)}.</p>
+                  )}
+                </QuizResult>
+              );
+            default:
+              return null;
+          }
+        }}
+      </QuizStep>
+      <QuizNavigation />
+    </QuizRoot>
+  );
+}
+```
+
+That's the whole pattern — every funnel you build is this same shape,
+just with a different `QuizDefinition` and a different set of `case`s in
+the switch. See each component's page in the sidebar for its full prop
+list, or the [`/example`](/example) page for a version using all of
+them together, including `QuizImageChoice` and `QuizTransition`.
+
+## Optional: step transitions
+
+`QuizTransition` animates the step change, but it needs a Tailwind
+keyframe that the CLI doesn't install automatically (it copies component
+code, not CSS). Add this to your global stylesheet once:
+
+```css
+@layer utilities {
+  @keyframes quiz-ui-step-in {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-quiz-ui-step-in {
+    animation: quiz-ui-step-in 200ms ease-out;
+  }
+}
+```
+
+## Next.js note
+
+Every quiz-ui component needs `"use client"` — this is a fully
+client-side library (React state, context, event handlers). It's already
+included in every file the CLI installs. The one thing _you_ need to
+remember: any page or component **you** write that renders `<QuizRoot
+onComplete={...}>` with an inline callback needs `"use client"` at its
+own top too, or you'll hit "Event handlers cannot be passed to Client
+Component props."
+
+## Next steps
+
+- Browse the sidebar for full prop references on every component.
+- Try [`/example`](/example) to see a complete funnel end to end.
