@@ -15,8 +15,7 @@
       "files": [
         {
           "path": "lib/utils.ts",
-          "type": "registry:lib",
-          "target": "lib/utils.ts"
+          "type": "registry:lib"
         }
       ]
     },
@@ -28,28 +27,23 @@
       "files": [
         {
           "path": "components/ui/quiz/core/types.ts",
-          "type": "registry:hook",
-          "target": "components/ui/quiz/core/types.ts"
+          "type": "registry:hook"
         },
         {
           "path": "components/ui/quiz/core/engine.ts",
-          "type": "registry:hook",
-          "target": "components/ui/quiz/core/engine.ts"
+          "type": "registry:hook"
         },
         {
           "path": "components/ui/quiz/core/QuizProvider.tsx",
-          "type": "registry:hook",
-          "target": "components/ui/quiz/core/QuizProvider.tsx"
+          "type": "registry:hook"
         },
         {
           "path": "components/ui/quiz/core/hooks.ts",
-          "type": "registry:hook",
-          "target": "components/ui/quiz/core/hooks.ts"
+          "type": "registry:hook"
         },
         {
           "path": "components/ui/quiz/core/index.ts",
-          "type": "registry:hook",
-          "target": "components/ui/quiz/core/index.ts"
+          "type": "registry:hook"
         }
       ]
     },
@@ -65,8 +59,7 @@
       "files": [
         {
           "path": "components/ui/quiz/quiz-root.tsx",
-          "type": "registry:component",
-          "target": "components/ui/quiz/quiz-root.tsx"
+          "type": "registry:component"
         }
       ]
     },
@@ -82,8 +75,7 @@
       "files": [
         {
           "path": "components/ui/quiz/quiz-step.tsx",
-          "type": "registry:component",
-          "target": "components/ui/quiz/quiz-step.tsx"
+          "type": "registry:component"
         }
       ]
     },
@@ -102,8 +94,7 @@
       "files": [
         {
           "path": "components/ui/quiz/quiz-progress.tsx",
-          "type": "registry:component",
-          "target": "components/ui/quiz/quiz-progress.tsx"
+          "type": "registry:component"
         }
       ]
     },
@@ -114,8 +105,7 @@
       "description": "Single- and multi-select answer cards, on Radix RadioGroup/Checkbox.",
       "dependencies": [
         "@radix-ui/react-radio-group",
-        "@radix-ui/react-checkbox",
-        "class-variance-authority"
+        "@radix-ui/react-checkbox"
       ],
       "registryDependencies": [
         "quiz-core",
@@ -124,8 +114,7 @@
       "files": [
         {
           "path": "components/ui/quiz/quiz-choice.tsx",
-          "type": "registry:component",
-          "target": "components/ui/quiz/quiz-choice.tsx"
+          "type": "registry:component"
         }
       ]
     },
@@ -144,8 +133,7 @@
       "files": [
         {
           "path": "components/ui/quiz/quiz-image-choice.tsx",
-          "type": "registry:component",
-          "target": "components/ui/quiz/quiz-image-choice.tsx"
+          "type": "registry:component"
         }
       ]
     },
@@ -164,8 +152,7 @@
       "files": [
         {
           "path": "components/ui/quiz/quiz-slider.tsx",
-          "type": "registry:component",
-          "target": "components/ui/quiz/quiz-slider.tsx"
+          "type": "registry:component"
         }
       ]
     },
@@ -184,8 +171,7 @@
       "files": [
         {
           "path": "components/ui/quiz/quiz-rating.tsx",
-          "type": "registry:component",
-          "target": "components/ui/quiz/quiz-rating.tsx"
+          "type": "registry:component"
         }
       ]
     },
@@ -204,8 +190,7 @@
       "files": [
         {
           "path": "components/ui/quiz/quiz-text-input.tsx",
-          "type": "registry:component",
-          "target": "components/ui/quiz/quiz-text-input.tsx"
+          "type": "registry:component"
         }
       ]
     },
@@ -224,8 +209,7 @@
       "files": [
         {
           "path": "components/ui/quiz/quiz-email-input.tsx",
-          "type": "registry:component",
-          "target": "components/ui/quiz/quiz-email-input.tsx"
+          "type": "registry:component"
         }
       ]
     },
@@ -241,8 +225,7 @@
       "files": [
         {
           "path": "components/ui/quiz/quiz-navigation.tsx",
-          "type": "registry:component",
-          "target": "components/ui/quiz/quiz-navigation.tsx"
+          "type": "registry:component"
         }
       ]
     },
@@ -258,8 +241,7 @@
       "files": [
         {
           "path": "components/ui/quiz/quiz-transition.tsx",
-          "type": "registry:component",
-          "target": "components/ui/quiz/quiz-transition.tsx"
+          "type": "registry:component"
         }
       ]
     },
@@ -275,8 +257,7 @@
       "files": [
         {
           "path": "components/ui/quiz/quiz-result.tsx",
-          "type": "registry:component",
-          "target": "components/ui/quiz/quiz-result.tsx"
+          "type": "registry:component"
         }
       ]
     },
@@ -294,8 +275,7 @@
       "files": [
         {
           "path": "components/ui/quiz/quiz-dialog.tsx",
-          "type": "registry:component",
-          "target": "components/ui/quiz/quiz-dialog.tsx"
+          "type": "registry:component"
         }
       ]
     }
