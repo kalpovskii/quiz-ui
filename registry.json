@@ -53,8 +53,8 @@
       "title": "QuizRoot",
       "description": "Top-level funnel wrapper; owns the engine via QuizProvider.",
       "registryDependencies": [
-        "quiz-core",
-        "quiz-cn"
+        "@quiz-ui/quiz-core",
+        "@quiz-ui/quiz-cn"
       ],
       "files": [
         {
@@ -69,8 +69,8 @@
       "title": "QuizStep",
       "description": "Renders the active step's question heading and answer input.",
       "registryDependencies": [
-        "quiz-core",
-        "quiz-cn"
+        "@quiz-ui/quiz-core",
+        "@quiz-ui/quiz-cn"
       ],
       "files": [
         {
@@ -88,8 +88,8 @@
         "@radix-ui/react-progress"
       ],
       "registryDependencies": [
-        "quiz-core",
-        "quiz-cn"
+        "@quiz-ui/quiz-core",
+        "@quiz-ui/quiz-cn"
       ],
       "files": [
         {
@@ -108,8 +108,8 @@
         "@radix-ui/react-checkbox"
       ],
       "registryDependencies": [
-        "quiz-core",
-        "quiz-cn"
+        "@quiz-ui/quiz-core",
+        "@quiz-ui/quiz-cn"
       ],
       "files": [
         {
@@ -127,8 +127,8 @@
         "@radix-ui/react-radio-group"
       ],
       "registryDependencies": [
-        "quiz-core",
-        "quiz-cn"
+        "@quiz-ui/quiz-core",
+        "@quiz-ui/quiz-cn"
       ],
       "files": [
         {
@@ -146,8 +146,8 @@
         "@radix-ui/react-slider"
       ],
       "registryDependencies": [
-        "quiz-core",
-        "quiz-cn"
+        "@quiz-ui/quiz-core",
+        "@quiz-ui/quiz-cn"
       ],
       "files": [
         {
@@ -165,8 +165,8 @@
         "@radix-ui/react-toggle-group"
       ],
       "registryDependencies": [
-        "quiz-core",
-        "quiz-cn"
+        "@quiz-ui/quiz-core",
+        "@quiz-ui/quiz-cn"
       ],
       "files": [
         {
@@ -184,8 +184,8 @@
         "@radix-ui/react-label"
       ],
       "registryDependencies": [
-        "quiz-core",
-        "quiz-cn"
+        "@quiz-ui/quiz-core",
+        "@quiz-ui/quiz-cn"
       ],
       "files": [
         {
@@ -203,8 +203,8 @@
         "@radix-ui/react-label"
       ],
       "registryDependencies": [
-        "quiz-core",
-        "quiz-cn"
+        "@quiz-ui/quiz-core",
+        "@quiz-ui/quiz-cn"
       ],
       "files": [
         {
@@ -219,8 +219,8 @@
       "title": "QuizNavigation",
       "description": "Back/Next controls; Next disables automatically until the step is answered.",
       "registryDependencies": [
-        "quiz-core",
-        "quiz-cn"
+        "@quiz-ui/quiz-core",
+        "@quiz-ui/quiz-cn"
       ],
       "files": [
         {
@@ -235,8 +235,8 @@
       "title": "QuizTransition",
       "description": "Fade/slide transition wrapper for step changes. Requires a Tailwind keyframe — see the component's JSDoc.",
       "registryDependencies": [
-        "quiz-core",
-        "quiz-cn"
+        "@quiz-ui/quiz-core",
+        "@quiz-ui/quiz-cn"
       ],
       "files": [
         {
@@ -251,8 +251,8 @@
       "title": "QuizResult",
       "description": "Renders its children only once the funnel is complete.",
       "registryDependencies": [
-        "quiz-core",
-        "quiz-cn"
+        "@quiz-ui/quiz-core",
+        "@quiz-ui/quiz-cn"
       ],
       "files": [
         {
@@ -270,7 +270,7 @@
         "@radix-ui/react-dialog"
       ],
       "registryDependencies": [
-        "quiz-cn"
+        "@quiz-ui/quiz-cn"
       ],
       "files": [
         {
