@@ -26,16 +26,10 @@ Add the `@quiz-ui` namespace to your project once:
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 
 <Tabs items={["pnpm", "npm", "yarn", "bun"]}>
-  <Tab value="pnpm">
-    ```bash pnpm dlx shadcn@latest registry add @quiz-ui ```
-  </Tab>
-  <Tab value="npm">```bash npx shadcn@latest registry add @quiz-ui ```</Tab>
-  <Tab value="yarn">
-    ```bash yarn dlx shadcn@latest registry add @quiz-ui ```
-  </Tab>
-  <Tab value="bun">
-    ```bash bunx --bun shadcn@latest registry add @quiz-ui ```
-  </Tab>
+  <Tab value="pnpm">```pnpm dlx shadcn@latest registry add @quiz-ui ```</Tab>
+  <Tab value="npm">```npx shadcn@latest registry add @quiz-ui ```</Tab>
+  <Tab value="yarn">```yarn dlx shadcn@latest registry add @quiz-ui ```</Tab>
+  <Tab value="bun">```bunx --bun shadcn@latest registry add @quiz-ui ```</Tab>
 </Tabs>
 
 This writes the registry's URL template into your project's
