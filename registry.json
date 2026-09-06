@@ -27,23 +27,28 @@
       "files": [
         {
           "path": "components/ui/quiz/core/types.ts",
-          "type": "registry:hook"
+          "type": "registry:hook",
+          "target": "components/ui/quiz/core/types.ts"
         },
         {
           "path": "components/ui/quiz/core/engine.ts",
-          "type": "registry:hook"
+          "type": "registry:hook",
+          "target": "components/ui/quiz/core/engine.ts"
         },
         {
           "path": "components/ui/quiz/core/QuizProvider.tsx",
-          "type": "registry:hook"
+          "type": "registry:hook",
+          "target": "components/ui/quiz/core/QuizProvider.tsx"
         },
         {
           "path": "components/ui/quiz/core/hooks.ts",
-          "type": "registry:hook"
+          "type": "registry:hook",
+          "target": "components/ui/quiz/core/hooks.ts"
         },
         {
           "path": "components/ui/quiz/core/index.ts",
-          "type": "registry:hook"
+          "type": "registry:hook",
+          "target": "components/ui/quiz/core/index.ts"
         }
       ]
     },
