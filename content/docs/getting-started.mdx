@@ -23,12 +23,20 @@ stylesheet to import.
 
 Add the `@quiz-ui` namespace to your project once:
 
-<CodeTabs>
-  ```bash tab="pnpm" pnpm dlx shadcn@latest registry add @quiz-ui ``` ```bash
-  tab="npm" npx shadcn@latest registry add @quiz-ui ``` ```bash tab="yarn" yarn
-  dlx shadcn@latest registry add @quiz-ui ``` ```bash tab="bun" bunx --bun
-  shadcn@latest registry add @quiz-ui ```
-</CodeTabs>
+import { Tab, Tabs } from "fumadocs-ui/components/tabs";
+
+<Tabs items={["pnpm", "npm", "yarn", "bun"]}>
+  <Tab value="pnpm">
+    ```bash pnpm dlx shadcn@latest registry add @quiz-ui ```
+  </Tab>
+  <Tab value="npm">```bash npx shadcn@latest registry add @quiz-ui ```</Tab>
+  <Tab value="yarn">
+    ```bash yarn dlx shadcn@latest registry add @quiz-ui ```
+  </Tab>
+  <Tab value="bun">
+    ```bash bunx --bun shadcn@latest registry add @quiz-ui ```
+  </Tab>
+</Tabs>
 
 This writes the registry's URL template into your project's
 `components.json`. If you'd rather do it by hand, add it directly:
