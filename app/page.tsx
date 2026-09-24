@@ -1,18 +1,22 @@
-import {
-  Card,
-  CardContent,
-} from "@/components/ui/card";
+import { SiteHeader } from "@/components/ui/site/header";
+import { SiteHero } from "@/components/ui/site/hero";
+import { ExamplesSection } from "@/components/ui/site/examples-section";
+import { SiteFooter } from "@/components/ui/site/footer";
 
 export default function HomePage() {
   return (
-    <main className="flex min-h-svh w-full items-center justify-center bg-background px-4 py-16 sm:px-6">
-      <Card className="w-full max-w-sm">
-        <CardContent className="p-6">
-          <p className="text-sm font-medium leading-relaxed text-foreground">
-            hello world
-          </p>
-        </CardContent>
-      </Card>
-    </main>
+    <div className="flex min-h-svh w-full flex-col bg-background">
+      <SiteHeader />
+      <main className="flex-1">
+        <SiteHero
+          title="Build quiz funnels with Radix components"
+          description="quiz-ui is a shadcn/ui-compatible registry of Radix-based components for building quiz funnels — multi-step question flows with branching, progress tracking, and a result screen. Install exactly the components you need as source, no npm package."
+          primaryLabel="Get started"
+          secondaryLabel="View example"
+        />
+        <ExamplesSection />
+      </main>
+      <SiteFooter />
+    </div>
   );
 }
