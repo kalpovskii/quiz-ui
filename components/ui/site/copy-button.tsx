@@ -16,7 +16,7 @@ export function CopyButton({ text, label }: CopyButtonProps) {
     <Button
       variant="outline"
       size="sm"
-      className="cursor-pointer self-start py-1 text-[11px] h-auto"
+      className="cursor-pointer self-start py-1 text-[11px] h-auto my-2"
       onClick={() => copy(text)}
       aria-label={`Copy ${label}`}
     >

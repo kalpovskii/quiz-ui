@@ -31,20 +31,6 @@ export function SiteHero({
         <p className="max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
           {description}
         </p>
-        <ul className="flex max-w-xl flex-col gap-2 text-sm text-muted-foreground sm:flex-row sm:gap-6">
-          <li className="flex items-center justify-center gap-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-purple-500" />
-            Headless — works with any styles
-          </li>
-          <li className="flex items-center justify-center gap-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-purple-500" />
-            Radix-powered
-          </li>
-          <li className="flex items-center justify-center gap-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-purple-500" />
-            Install as source, own the code
-          </li>
-        </ul>
         <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:justify-center">
           <Button
             asChild

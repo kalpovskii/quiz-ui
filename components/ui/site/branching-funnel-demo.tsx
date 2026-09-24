@@ -77,13 +77,13 @@ export function BranchingFunnelDemo() {
       <AutoAdvanceOnTerminal />
 
       <QuizProgress
-        labelClassName="text-[11px] font-medium text-zinc-500 dark:text-zinc-400"
-        trackClassName="relative h-1.5 w-full overflow-hidden rounded-full bg-violet-100 dark:bg-violet-900/40"
-        indicatorClassName="h-full w-full bg-gradient-to-r from-violet-500 to-fuchsia-500 transition-transform duration-300 ease-out"
+        labelClassName="text-[11px] font-medium text-muted-foreground"
+        trackClassName="relative h-1.5 w-full overflow-hidden rounded-full bg-muted"
+        indicatorClassName="h-full w-full rounded-full bg-violet-500 transition-transform duration-300 ease-out"
       />
 
       <QuizTransition className="animate-quiz-ui-step-in">
-        <QuizStep questionClassName="mb-3 text-base font-semibold text-zinc-900 dark:text-zinc-50">
+        <QuizStep questionClassName="mb-3 text-sm font-semibold text-foreground">
           {(step) => {
             switch (step.type) {
               case "choice":
@@ -91,11 +91,11 @@ export function BranchingFunnelDemo() {
                   <QuizChoiceGroup
                     options={(step.props?.options as any) ?? []}
                     className="flex flex-col gap-2"
-                    itemClassName="flex w-full cursor-pointer items-center gap-3 rounded-xl border border-violet-100 bg-violet-50/50 px-4 py-3 text-left transition-colors hover:border-violet-300 hover:bg-violet-50 dark:border-violet-900/50 dark:bg-violet-950/20 dark:hover:border-violet-700"
-                    activeItemClassName="border-violet-500 bg-violet-100 ring-1 ring-violet-500 dark:border-violet-500 dark:bg-violet-900/40"
-                    indicatorClassName="flex h-4 w-4 items-center justify-center rounded-full border-2 border-violet-400"
-                    labelClassName="font-medium text-zinc-800 dark:text-zinc-100"
-                    descriptionClassName="text-xs text-zinc-500 dark:text-zinc-400"
+                    itemClassName="flex w-full cursor-pointer items-center gap-3 rounded-lg border px-4 py-3 text-left transition-colors hover:bg-muted/50"
+                    activeItemClassName="border-violet-500 bg-violet-50/70 dark:bg-violet-950/30"
+                    indicatorClassName="flex h-4 w-4 items-center justify-center rounded-full border-2 border-muted-foreground"
+                    labelClassName="font-medium text-sm"
+                    descriptionClassName="text-xs text-muted-foreground"
                   />
                 );
               case "rating":
@@ -104,8 +104,8 @@ export function BranchingFunnelDemo() {
                     scale={(step.props?.scale as number) ?? 5}
                     numeric={Boolean(step.props?.numeric)}
                     className="flex gap-2"
-                    itemClassName="flex h-11 w-11 items-center justify-center rounded-xl border border-violet-100 bg-violet-50/50 text-sm font-semibold text-zinc-600 transition-colors cursor-pointer hover:border-violet-300 dark:border-violet-900/50 dark:bg-violet-950/20 dark:text-zinc-300"
-                    activeItemClassName="border-transparent bg-gradient-to-br from-violet-500 to-fuchsia-500 text-white shadow-md"
+                    itemClassName="flex h-10 w-10 items-center justify-center rounded-lg border text-sm font-medium cursor-pointer transition-colors hover:border-violet-200 hover:bg-muted/50 dark:hover:border-violet-800"
+                    activeItemClassName="border-violet-500 bg-violet-50 text-violet-700 dark:bg-violet-950/40 dark:text-violet-300"
                   />
                 );
               case "slider":
@@ -114,10 +114,10 @@ export function BranchingFunnelDemo() {
                     min={(step.props?.min as number) ?? 0}
                     max={(step.props?.max as number) ?? 50}
                     step={(step.props?.step as number) ?? 1}
-                    valueClassName="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-fuchsia-600"
-                    trackClassName="h-2 rounded-full bg-violet-100 dark:bg-violet-900/40"
-                    rangeClassName="rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500"
-                    thumbClassName="block h-6 w-6 rounded-full border-2 border-white bg-gradient-to-r from-violet-500 to-fuchsia-500 shadow-md cursor-pointer"
+                    valueClassName="text-2xl font-bold text-violet-600 dark:text-violet-400"
+                    trackClassName="h-2 rounded-full bg-muted"
+                    rangeClassName="rounded-full bg-violet-500"
+                    thumbClassName="block h-5 w-5 rounded-full border-2 border-background bg-violet-600 shadow-sm cursor-pointer"
                   />
                 );
               case "email":
@@ -125,23 +125,27 @@ export function BranchingFunnelDemo() {
                   <QuizEmailInput
                     invalidMessage="Enter a valid email address."
                     wrapperClassName="flex flex-col gap-1.5"
-                    className="h-11 w-full rounded-xl border border-violet-200 bg-white px-4 text-sm text-zinc-900 placeholder:text-zinc-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 dark:border-violet-900/50 dark:bg-zinc-800 dark:text-zinc-100"
-                    invalidClassName="border-red-500 focus-visible:ring-red-500"
-                    errorMessageClassName="text-xs text-red-500"
+                    className="h-10 w-full rounded-lg border bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/50"
+                    invalidClassName="border-destructive focus-visible:ring-destructive/50"
+                    errorMessageClassName="text-xs text-destructive"
                   />
                 );
               case "result":
                 return (
                   <QuizResult className="flex flex-col gap-2">
                     {(answers) => (
-                      <div className="rounded-xl border border-violet-100 bg-violet-50/50 p-5 dark:border-violet-900/50 dark:bg-violet-950/20">
-                        <p className="text-sm font-semibold text-zinc-800 dark:text-zinc-100">
+                      <div className="rounded-lg border bg-muted/30 p-5">
+                        <p className="text-sm font-semibold text-foreground">
                           Your plan is ready{answers.email ? `, check ${String(answers.email)}` : "!"}
                         </p>
-                        <ul className="mt-2 flex flex-col gap-1 text-xs text-zinc-600 dark:text-zinc-400">
-                          <li>Goal: <strong>{String(answers.goal)}</strong></li>
-                          {answers.frequency !== undefined && <li>Days/week: <strong>{String(answers.frequency)}</strong></li>}
-                          {answers.distance !== undefined && <li>Weekly distance: <strong>{String(answers.distance)} km</strong></li>}
+                        <ul className="mt-2 flex flex-col gap-1 text-xs text-muted-foreground">
+                          <li>Goal: <strong className="text-foreground">{String(answers.goal)}</strong></li>
+                          {answers.frequency !== undefined && (
+                            <li>Days/week: <strong className="text-foreground">{String(answers.frequency)}</strong></li>
+                          )}
+                          {answers.distance !== undefined && (
+                            <li>Weekly distance: <strong className="text-foreground">{String(answers.distance)} km</strong></li>
+                          )}
                         </ul>
                       </div>
                     )}
@@ -156,8 +160,8 @@ export function BranchingFunnelDemo() {
 
       <QuizNavigation
         className="flex items-center justify-between"
-        backButtonClassName="cursor-pointer text-xs font-medium text-zinc-400 transition-colors hover:text-zinc-600 dark:hover:text-zinc-300"
-        nextButtonClassName="ml-auto cursor-pointer rounded-lg bg-gradient-to-r from-violet-600 to-fuchsia-600 px-5 py-2 text-xs font-semibold text-white shadow-md shadow-violet-500/25 transition-opacity disabled:cursor-not-allowed disabled:opacity-40"
+        backButtonClassName="cursor-pointer text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+        nextButtonClassName="ml-auto cursor-pointer rounded-lg bg-violet-600 px-5 py-2 text-xs font-semibold text-white shadow-sm transition-opacity hover:bg-violet-700 disabled:cursor-not-allowed disabled:opacity-40"
       />
     </QuizRoot>
   );

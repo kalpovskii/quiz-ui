@@ -53,7 +53,7 @@ export function HowItWorksSection() {
                 key={item.name}
                 className="flex gap-4 rounded-xl border bg-muted/30 p-4"
               >
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-violet-600 to-fuchsia-600 text-xs font-bold text-white">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-violet-500 text-xs font-bold text-white">
                   {i + 1}
                 </span>
                 <div className="flex flex-col gap-1">
@@ -68,7 +68,7 @@ export function HowItWorksSection() {
           </div>
 
           {/* Right: live branching funnel demo */}
-          <div className="flex items-start justify-center rounded-2xl border border-violet-200 bg-gradient-to-br from-violet-50/60 to-background p-6 dark:border-violet-900/50 dark:from-violet-950/10 sm:p-8">
+          <div className="flex items-start justify-center rounded-2xl border bg-muted/20 p-6 sm:p-8">
             <div className="w-full max-w-sm">
               <BranchingFunnelDemo />
             </div>

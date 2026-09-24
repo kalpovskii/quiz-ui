@@ -25,16 +25,24 @@ interface ExampleCardProps {
 }
 
 export async function ExampleCard({ example }: ExampleCardProps) {
+  // Single theme (no `--shiki-dark` vars) so the pre has one clean, neutral
+  // background we fully control — avoids shiki's white block bleeding out.
   const highlighted = await codeToHtml(example.code, {
     lang: "tsx",
-    themes: { light: "github-light", dark: "github-dark" },
+    theme: "github-dark",
   });
 
   const DemoComponent = DEMO_MAP[example.id];
 
-  // Server-rendered highlighted code (static, inlined into the DOM).
+  // Strip shiki's outer <pre> so the highlighted <code> slots directly into
+  // the PromptCodeTabs frame (which owns padding/scroll/rounding).
+  const innerHtml = highlighted.replace(/^<pre[^>]*>/, "").replace(/<\/pre>\s*$/, "");
+
   const codeBlock = (
-    <div dangerouslySetInnerHTML={{ __html: highlighted }} className="h-full" />
+    <code
+      className="block p-3 text-[11px] leading-relaxed [&_span]:!text-[11px]"
+      dangerouslySetInnerHTML={{ __html: innerHtml }}
+    />
   );
 
   return (

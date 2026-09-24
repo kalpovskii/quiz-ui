@@ -25,20 +25,20 @@ export function PromptCodeTabs({ prompt, code, codeBlock }: PromptCodeTabsProps)
       </div>
 
       {/* Prompt panel */}
-      <div className={cn("mt-2", tab !== "prompt" && "hidden")}>
+      <div className={cn("mt-3", tab !== "prompt" && "hidden")}>
         <div className="flex flex-col gap-2">
           <CopyButton text={prompt} label="prompt" />
-          <pre className="max-h-72 w-full overflow-auto rounded-md border bg-muted/50 p-3 text-xs leading-relaxed whitespace-pre-wrap break-words text-foreground">
+          <pre className="max-h-72 w-full overflow-auto rounded-md border bg-muted/50 p-3 text-xs leading-relaxed text-foreground">
             {prompt}
           </pre>
         </div>
       </div>
 
       {/* Code panel */}
-      <div className={cn("mt-2", tab !== "code" && "hidden")}>
+      <div className={cn("mt-3", tab !== "code" && "hidden")}>
         <div className="flex flex-col gap-2">
           <CopyButton text={code} label="code" />
-          <div className="max-h-72 overflow-auto rounded-md border bg-muted/50 text-[11px] leading-relaxed [&>pre]:!m-0 [&>pre]:!rounded-none [&>pre]:!bg-transparent [&>pre]:!p-3 [&_code]:!text-[11px] [&_span]:!text-[11px] [&>div]:!overflow-auto">
+          <div className="max-h-72 overflow-auto rounded-md border bg-zinc-900">
             {codeBlock}
           </div>
         </div>
@@ -62,10 +62,10 @@ function TabButton({
       onClick={onClick}
       aria-pressed={active}
       className={cn(
-        "cursor-pointer rounded-sm px-3 py-1.5 text-sm font-medium transition-colors",
+        "inline-flex cursor-pointer items-center rounded-md px-3 py-1.5 text-sm font-medium transition-colors",
         active
-          ? "bg-background text-foreground shadow-sm"
-          : "text-muted-foreground hover:text-foreground",
+          ? "bg-accent text-accent-foreground shadow-sm ring-1 ring-border"
+          : "text-muted-foreground hover:bg-muted hover:text-foreground",
       )}
     >
       {children}
