@@ -10,18 +10,21 @@ export interface CopyButtonProps {
   label: string;
 }
 
-/** Small self-contained copy button with "Copied!" feedback. */
 export function CopyButton({ text, label }: CopyButtonProps) {
   const { copied, copy } = useCopyToClipboard();
   return (
     <Button
       variant="outline"
       size="sm"
-      className="self-start"
+      className="cursor-pointer self-start py-1 text-[11px] h-auto"
       onClick={() => copy(text)}
       aria-label={`Copy ${label}`}
     >
-      {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+      {copied ? (
+        <Check className="h-3 w-3" />
+      ) : (
+        <Copy className="h-3 w-3" />
+      )}
       {copied ? "Copied!" : "Copy"}
     </Button>
   );
