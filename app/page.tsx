@@ -10,7 +10,7 @@ export default function HomePage() {
       <main className="flex-1">
         <SiteHero
           title="Build quiz funnels with Radix components"
-          description="quiz-ui is a shadcn/ui-compatible registry of Radix-based components for building quiz funnels — multi-step question flows with branching, progress tracking, and a result screen. Install exactly the components you need as source, no npm package."
+          description="Drop-in quiz questions, sliders, and forms you install as source code. No npm package — you own every line."
           primaryLabel="Get started"
           secondaryLabel="View example"
         />

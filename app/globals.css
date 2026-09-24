@@ -123,3 +123,12 @@
     animation: quiz-ui-step-in 200ms ease-out;
   }
 }
+
+/* Shiki dual-theme (light/dark) highlighted code blocks. The inline
+   `color` applies in light mode; in dark mode we switch to the
+   `--shiki-dark*` variables shiki emits on the <pre>. */
+.dark .shiki,
+.dark .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+}

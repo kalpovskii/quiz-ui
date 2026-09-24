@@ -18,20 +18,23 @@ export function SiteFooter() {
         </div>
         <nav className="flex flex-col gap-2 text-sm" aria-label="Footer navigation">
           <span className="font-medium text-foreground">Resources</span>
-          <Link href="/docs" className="text-muted-foreground transition-colors hover:text-foreground">
+          <Link
+            href="/docs"
+            className="text-foreground/80 underline-offset-2 transition-colors hover:text-foreground hover:underline"
+          >
             Docs
           </Link>
-          <Link href="/docs/components" className="text-muted-foreground transition-colors hover:text-foreground">
-            Components
-          </Link>
-          <Link href="/example" className="text-muted-foreground transition-colors hover:text-foreground">
+          <Link
+            href="/example"
+            className="text-foreground/80 underline-offset-2 transition-colors hover:text-foreground hover:underline"
+          >
             Example
           </Link>
           <a
             href="https://github.com/kalpovskii/quiz-ui"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground transition-colors hover:text-foreground"
+            className="text-foreground/80 underline-offset-2 transition-colors hover:text-foreground hover:underline"
           >
             GitHub
           </a>

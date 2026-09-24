@@ -1,10 +1,12 @@
-"use client";
-
 import * as React from "react";
-import { SliderExample } from "@/components/ui/site/slider-example";
-import { CopyTabs } from "@/components/ui/site/copy-tabs";
-import { sliderExample } from "@/components/ui/site/quiz-examples-data";
+import { ExampleCard } from "@/components/ui/site/example-card";
+import { quizExamples } from "@/components/ui/site/quiz-examples-data";
 
+/**
+ * Server component. Renders every quiz component example as a card:
+ * left side = prompt + syntax-highlighted code tabs, right side = live
+ * demo. Uses a subtle purple gradient accent on each card.
+ */
 export function ExamplesSection() {
   return (
     <section className="w-full border-t bg-muted/30">
@@ -14,29 +16,17 @@ export function ExamplesSection() {
             See it in action
           </h2>
           <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
-            Every example is a real, working funnel built with the library.
-            Copy the prompt to regenerate it with an agent, or copy the code to
-            drop it straight into your project.
+            Every quiz-ui component shown below is a real, working demo. Copy the
+            prompt to generate it with an LLM, or copy the code to drop it
+            straight into your project.
           </p>
         </div>
 
-        {/* Grid: 1 column on mobile, 2 columns on desktop */}
-        <div className="grid w-full grid-cols-1 gap-8 md:grid-cols-2">
-          {/* Left: prompt / code tabs */}
-          <div className="w-full">
-            <h3 className="mb-3 text-lg font-semibold text-foreground">
-              {sliderExample.title}
-            </h3>
-            <p className="mb-4 text-sm text-muted-foreground">
-              {sliderExample.description}
-            </p>
-            <CopyTabs prompt={sliderExample.prompt} code={sliderExample.code} />
-          </div>
-
-          {/* Right: live example component */}
-          <div className="flex w-full items-center justify-center rounded-lg border bg-background p-6 sm:p-8">
-            <SliderExample />
-          </div>
+        {/* Stack of example cards, one per component */}
+        <div className="flex flex-col gap-12">
+          {quizExamples.map((example) => (
+            <ExampleCard key={example.id} example={example} />
+          ))}
         </div>
       </div>
     </section>
