@@ -3,7 +3,6 @@
 import * as React from "react";
 import {
   QuizRoot,
-  QuizProgress,
   QuizTransition,
   QuizStep,
   QuizChoiceGroup,
@@ -14,7 +13,42 @@ import {
   QuizResult,
   useQuizEngine,
 } from "@/components/ui/quiz";
+import { cn } from "@/lib/utils";
 import type { QuizDefinition } from "@/components/ui/quiz/core";
+
+/** Progress bar that excludes terminal result steps and shows "Done" on complete. */
+function DemoProgress() {
+  const { definition, state, progress } = useQuizEngine();
+
+  // Count question steps (all steps except type === "result").
+  const questionSteps = definition.steps.filter((s) => s.type !== "result");
+  const total = questionSteps.length;
+
+  // Max unique question steps visited so far.
+  const visitedIds = new Set(state.history);
+  const answered = questionSteps.filter((s) => visitedIds.has(s.id)).length;
+
+  const isComplete = state.status === "complete";
+
+  return (
+    <div className="flex flex-col gap-1.5">
+      <span className="text-[11px] font-medium text-muted-foreground">
+        {isComplete ? "Done ✓" : `Step ${Math.min(answered, total)} of ${total}`}
+      </span>
+      <div className="relative h-1.5 w-full overflow-hidden rounded-full bg-muted">
+        <div
+          className={cn(
+            "h-full rounded-full bg-violet-500 transition-all duration-300 ease-out",
+            isComplete && "bg-violet-500",
+          )}
+          style={{
+            width: `${isComplete ? 100 : Math.min(((answered) / total) * 100, 100)}%`,
+          }}
+        />
+      </div>
+    </div>
+  );
+}
 
 const branchingQuiz: QuizDefinition = {
   id: "branching-demo",
@@ -76,11 +110,7 @@ export function BranchingFunnelDemo() {
     >
       <AutoAdvanceOnTerminal />
 
-      <QuizProgress
-        labelClassName="text-[11px] font-medium text-muted-foreground"
-        trackClassName="relative h-1.5 w-full overflow-hidden rounded-full bg-muted"
-        indicatorClassName="h-full w-full rounded-full bg-violet-500 transition-transform duration-300 ease-out"
-      />
+      <DemoProgress />
 
       <QuizTransition className="animate-quiz-ui-step-in">
         <QuizStep questionClassName="mb-3 text-sm font-semibold text-foreground">

@@ -28,7 +28,7 @@ export function PromptCodeTabs({ prompt, code, codeBlock }: PromptCodeTabsProps)
       <div className={cn("mt-3", tab !== "prompt" && "hidden")}>
         <div className="flex flex-col gap-2">
           <CopyButton text={prompt} label="prompt" />
-          <pre className="max-h-72 w-full overflow-auto rounded-md border bg-muted/50 p-3 text-xs leading-relaxed text-foreground">
+          <pre className="max-h-72 w-full overflow-auto whitespace-pre-wrap break-words rounded-md border bg-muted/50 p-3 text-xs leading-relaxed text-foreground">
             {prompt}
           </pre>
         </div>

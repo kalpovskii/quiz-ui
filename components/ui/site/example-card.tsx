@@ -40,7 +40,7 @@ export async function ExampleCard({ example }: ExampleCardProps) {
 
   const codeBlock = (
     <code
-      className="block p-3 text-[11px] leading-relaxed [&_span]:!text-[11px]"
+      className="block whitespace-pre p-3 text-[11px] leading-relaxed [&_span]:!text-[11px]"
       dangerouslySetInnerHTML={{ __html: innerHtml }}
     />
   );

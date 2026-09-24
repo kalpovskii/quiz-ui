@@ -4,7 +4,6 @@ import * as React from "react";
 import {
   QuizRoot,
   QuizStep,
-  QuizProgress,
   QuizChoiceGroup,
   QuizImageChoice,
   QuizSlider,
@@ -22,12 +21,6 @@ import type { QuizDefinition } from "@/components/ui/quiz/core";
 function FunnelChrome({ children }: { children: React.ReactNode }) {
   return (
     <div className="w-full rounded-2xl border bg-card p-5 shadow-sm">
-      <QuizProgress
-        showLabel={false}
-        className="mb-4"
-        trackClassName="relative h-1.5 w-full overflow-hidden rounded-full bg-muted"
-        indicatorClassName="h-full w-full rounded-full bg-violet-500 transition-transform duration-300 ease-out"
-      />
       {children}
     </div>
   );
