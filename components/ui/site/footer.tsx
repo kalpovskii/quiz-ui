@@ -25,6 +25,12 @@ export function SiteFooter() {
             Docs
           </Link>
           <Link
+            href="/quiz-funnel"
+            className="text-foreground/80 underline-offset-2 transition-colors hover:text-foreground hover:underline"
+          >
+            Quiz funnels
+          </Link>
+          <Link
             href="/example"
             className="text-foreground/80 underline-offset-2 transition-colors hover:text-foreground hover:underline"
           >
