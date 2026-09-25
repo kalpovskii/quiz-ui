@@ -15,8 +15,8 @@ export default function HomePage() {
           primaryLabel="Get started"
           secondaryLabel="View example"
         />
-        <ExamplesSection />
         <HowItWorksSection />
+        <ExamplesSection />
       </main>
       <SiteFooter />
     </div>
