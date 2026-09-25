@@ -3,6 +3,7 @@ node_modules
 public/r/*.json
 !public/r/.gitkeep
 .env*
+!.env.example
 *.log
 
 # local dev / planning (not shipped in the repo)
