@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { seoPages } from "@/config/seo-keywords";
+import { seoPages, seoContentUpdated } from "@/config/seo-keywords";
 import { SiteHeader } from "@/components/ui/site/header";
 import { SiteFooter } from "@/components/ui/site/footer";
 import { Button } from "@/components/ui/button";
@@ -38,6 +38,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: page.title,
       description: page.description,
     },
+    other: {
+      "article:modified_time": seoContentUpdated,
+    },
   };
 }
 
@@ -46,8 +49,25 @@ export default async function SeoPage({ params }: PageProps) {
   const page = seoPages.find((p) => p.slug === slug);
   if (!page) notFound();
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: page.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <div className="flex min-h-svh w-full flex-col bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <SiteHeader />
       <main className="flex-1">
         <div className="mx-auto w-full max-w-3xl px-4 py-14 sm:px-6 sm:py-20">
@@ -57,6 +77,9 @@ export default async function SeoPage({ params }: PageProps) {
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
             {page.intro}
+          </p>
+          <p className="mt-3 text-xs text-muted-foreground/70">
+            Last updated: {seoContentUpdated}
           </p>
 
           {/* CTA */}

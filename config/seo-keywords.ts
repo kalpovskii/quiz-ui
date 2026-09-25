@@ -13,6 +13,13 @@ export interface SeoPageEntry {
   faqs: { question: string; answer: string }[];
 }
 
+/**
+ * Single source-of-truth "last updated" stamp for all SEO pages.
+ * Bump this when you refresh the keyword content — it feeds the
+ * dateModified metadata and the on-page freshness signal.
+ */
+export const seoContentUpdated = "2026-09-25";
+
 const faqDefault = (
   q1: string,
   a1: string,

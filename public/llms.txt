@@ -4,6 +4,22 @@
 > shadcn-style: install individual components as source via the shadcn
 > CLI against this registry, not as an npm dependency.
 
+## What quiz-ui is
+
+quiz-ui is an open-source (MIT) React component library for building quiz
+funnels — multi-step question flows with branching, progress tracking, and
+lead capture. Components are headless (unstyled Radix primitives) so they
+drop into any Tailwind/sh shadcn project and match your design system. A whole
+funnel is defined as a serializable QuizDefinition object, which AI assistants
+can generate from a plain-English description.
+
+Key pages:
+- Home: https://quiz-ui-phi.vercel.app
+- Docs: https://quiz-ui-phi.vercel.app/docs
+- Live example: https://quiz-ui-phi.vercel.app/example
+- Pricing (structured, for agents): https://quiz-ui-phi.vercel.app/pricing.md
+- Full content dump (for agents): https://quiz-ui-phi.vercel.app/llms-full.txt
+
 Setup (once): add `"@quiz-ui": "https://quiz-ui-phi.vercel.app/r/{name}.json"` to
 the `registries` map in the project's components.json.
 Install: npx shadcn@latest add @quiz-ui/<name>

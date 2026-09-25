@@ -9,10 +9,23 @@ export const metadata: Metadata = {
   description: "A shadcn/ui-compatible registry of Radix-based components for building quiz funnels.",
 };
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "quiz-ui",
+  url: "https://quiz-ui-phi.vercel.app",
+  description:
+    "A shadcn/ui-compatible registry of headless Radix-based components for building quiz funnels.",
+};
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="flex min-h-screen flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
         <RootProvider>{children}</RootProvider>
         <Analytics />
       </body>

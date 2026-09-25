@@ -1,0 +1,389 @@
+# quiz-ui — llms-full.txt
+
+Full site content in one file for AI agents. See https://llmstxt.org
+
+## About
+
+quiz-ui is an open-source (MIT) React component library for building quiz funnels — multi-step question flows with branching, progress tracking, and lead capture. Components are headless Radix primitives that drop into any shadcn/ui project. A funnel is a serializable QuizDefinition object that AI can generate from plain English.
+
+Docs: https://quiz-ui-phi.vercel.app/docs
+Example: https://quiz-ui-phi.vercel.app/example
+Pricing: https://quiz-ui-phi.vercel.app/pricing.md
+
+## Quiz Funnel — Build Multi-Step Quiz Funnels
+
+URL: https://quiz-ui-phi.vercel.app/quiz-funnel
+Description: Build a quiz funnel with headless Radix components. Handle branching, progress, and result screens — all as plain source code.
+
+A quiz funnel guides users through a sequence of questions, branches their path depending on each answer, and lands them on a result screen. With quiz-ui, you define the entire funnel as a plain JavaScript object and drop the components into your React project — no npm package, no black box.
+
+## Quiz Funnel Builder — Headless Builder for React & Next.js
+
+URL: https://quiz-ui-phi.vercel.app/quiz-funnel-builder
+Description: A quiz funnel builder that ships as source code. Build branching quiz flows with progress tracking, result screens, and full control over every pixel.
+
+Quiz funnel builders typically lock you into a SaaS platform with limited styling. quiz-ui is different: you install exactly the components you need as .tsx files into your own project, then style them with Tailwind or plain CSS. The funnel logic — branching, progress, navigation — lives in a serializable QuizDefinition object.
+
+## Quiz Funnel Software — Open Source Alternative
+
+URL: https://quiz-ui-phi.vercel.app/quiz-funnel-software
+Description: Quiz funnel software that lives in your repo, not on someone else's server. Full control, zero subscription, built on Radix UI primitives.
+
+Most quiz funnel software comes with a monthly fee and a walled garden. quiz-ui flips the model: it's a set of React components you install as source — no SaaS, no API calls, no vendor lock-in. The funnel engine handles branching, progress calculation, and answer collection; you handle the styling.
+
+## Quiz Funnel Examples — Live Interactive Demos
+
+URL: https://quiz-ui-phi.vercel.app/quiz-funnel-examples
+Description: Live quiz funnel examples built with headless Radix components. See slider, rating, choice, and email inputs working together with branching and progress.
+
+The best way to understand a quiz funnel is to see one working. quiz-ui ships with interactive examples for every component — choice cards, image grids, sliders, rating scales, text inputs, and email capture — each wired into a real QuizRoot with a progress bar and navigation buttons.
+
+## Quiz Funnel Template — Copy-Paste Templates for React
+
+URL: https://quiz-ui-phi.vercel.app/quiz-funnel-template
+Description: Ready-to-use quiz funnel templates for React. Copy and paste a complete funnel definition with branching, progress, and result screens.
+
+Start with a working quiz funnel template instead of building from scratch. Each template is a complete QuizDefinition object plus the JSX that renders it — copy one file, tweak the questions, and you have a live funnel in minutes.
+
+## Quiz Funnel for Lead Generation — Capture Qualified Leads
+
+URL: https://quiz-ui-phi.vercel.app/quiz-funnel-for-lead-generation
+Description: Build a quiz funnel for lead generation. Capture emails, qualify leads with branching logic, and send enriched data to your CRM.
+
+A quiz funnel for lead generation turns passive visitors into qualified leads. quiz-ui gives you the building blocks: question steps that collect data, an email capture component with format validation, and a result screen that can trigger your CRM integration. Because the components are headless, you style the entire funnel to match your brand.
+
+## Quiz Funnel React — React Components for Quiz Funnels
+
+URL: https://quiz-ui-phi.vercel.app/quiz-funnel-react
+Description: Build a quiz funnel in React with headless Radix components. Works with Next.js, Vite, Remix — any React 18+ project.
+
+quiz-ui is purpose-built for React developers who need quiz funnels. Every component is a React functional component using Radix UI primitives under the hood. The funnel engine is a useReducer-based state machine that handles branching resolution, answer collection, and progress calculation without external dependencies.
+
+## Next.js Quiz Funnel — Quiz Funnels for Next.js App Router
+
+URL: https://quiz-ui-phi.vercel.app/quiz-funnel-nextjs
+Description: Build a quiz funnel in Next.js with headless Radix components. Works with App Router, server components, and shadcn/ui out of the box.
+
+Next.js is the natural home for quiz-ui. Every component is compatible with the App Router, and the headless architecture means you style with Tailwind — the same stack shadcn/ui projects already use. Define your funnel as data, render it in a client component, and handle the completed answers in a server action.
+
+## WordPress Quiz Funnel — Headless Quiz Components for WP
+
+URL: https://quiz-ui-phi.vercel.app/quiz-funnel-wordpress
+Description: Add a quiz funnel to a WordPress site using headless React components. Embed the quiz in a Gutenberg block or a custom page.
+
+WordPress sites can use quiz-ui through a headless setup: render your React app (Next.js, Vite, or plain React) on a sub-path, embed it in a Gutenberg block, or add it to a custom page template. The quiz runs entirely in the browser — no WordPress plugin needed.
+
+## Build a Quiz Funnel — Step by Step with Headless Components
+
+URL: https://quiz-ui-phi.vercel.app/build-a-quiz-funnel
+Description: Learn how to build a quiz funnel in React. Define steps, add branching, wire up progress, and capture results — all with open source components.
+
+Building a quiz funnel from scratch means handling state, branching, progress tracking, and validation. quiz-ui provides all of that as headless React components. This page walks through the pieces: define a QuizDefinition, wrap it in QuizRoot, render steps with QuizStep, and add navigation with QuizNavigation.
+
+## Free Quiz Funnel — Build Quiz Funnels at Zero Cost
+
+URL: https://quiz-ui-phi.vercel.app/free-quiz-funnel
+Description: Build a free quiz funnel with open source components. No subscription, no seat limits, no vendor lock-in — just React components you own.
+
+Most quiz funnel tools charge monthly fees. quiz-ui is free and open source (MIT license) — every component installs as plain TypeScript files directly into your project. There's no SaaS, no usage caps, and no monthly bill. Install what you need and ship it.
+
+## Quiz Marketing Funnel — Interactive Marketing Quizzes
+
+URL: https://quiz-ui-phi.vercel.app/quiz-marketing-funnel
+Description: Build a quiz marketing funnel that segments your audience and captures qualified leads. Headless Radix components, zero SaaS fees.
+
+A quiz marketing funnel replaces static landing pages with an interactive question flow that segments visitors and qualifies them before they reach your sales team. quiz-ui gives you the front-end components: branching logic to route different answers, an email capture step, and a result screen to display personalized recommendations.
+
+## Quiz Builder — Headless React Components
+
+URL: https://quiz-ui-phi.vercel.app/quiz-builder
+Description: A quiz builder that ships as source code. Build single-select, multi-select, slider, rating, and text input questions with Radix primitives.
+
+quiz-ui is a quiz builder for React developers. Instead of a drag-and-drop SaaS tool, you get composable, headless components you install into your project and style with Tailwind. The quiz engine handles state, branching, and progress — so you focus on your questions and design.
+
+## Headless Quiz Builder — Unstyled Quiz Components for React
+
+URL: https://quiz-ui-phi.vercel.app/headless-quiz-builder
+Description: Build a quiz with headless components. No colors, borders, or layout baked in — style every element with Tailwind or plain CSS.
+
+A headless quiz builder separates logic from presentation. quiz-ui components ship with just the structural classes Radix needs to work — everything visual is your choice. Restyle a slider, swap card borders, or theme the entire funnel without touching branching logic.
+
+## Open Source Quiz Builder — Free Quiz Components for React
+
+URL: https://quiz-ui-phi.vercel.app/open-source-quiz-builder
+Description: An open source quiz builder for React. MIT licensed, installs as source, built on Radix UI primitives. No SaaS, no limits.
+
+quiz-ui is an open source quiz builder distributed shadcn-style: you install individual components as .tsx files into your project. The entire source — the engine, the hooks, every component — lives in your repo under an MIT license. Modify anything. Ship it anywhere.
+
+## Radix Quiz Components — Quiz UI Built on Radix Primitives
+
+URL: https://quiz-ui-phi.vercel.app/radix-quiz-components
+Description: Quiz components built on Radix UI: radio groups, checkboxes, sliders, toggle groups, labels, dialogs, and progress bars.
+
+Every quiz-ui component sits on top of a Radix UI primitive: QuizChoiceGroup uses Radix Radio Group, QuizSlider uses Radix Slider, QuizRating uses Radix Toggle Group, QuizDialog uses Radix Dialog. You get full accessibility and keyboard navigation out of the box, plus complete control over styling.
+
+## shadcn Quiz — Quiz Components for shadcn/ui Projects
+
+URL: https://quiz-ui-phi.vercel.app/shadcn-quiz
+Description: A shadcn/ui-compatible quiz registry. Install quiz components with npx shadcn add — same workflow as shadcn/ui.
+
+quiz-ui is a shadcn/ui registry. That means you install quiz components exactly like you install shadcn/ui components: add the @quiz-ui registry URL to your components.json, then run npx shadcn add @quiz-ui/quiz-choice. The component lands in your components/ui/quiz/ folder as a .tsx file you own.
+
+## React Quiz Builder — Build Quizzes as React Components
+
+URL: https://quiz-ui-phi.vercel.app/react-quiz-builder
+Description: A React quiz builder that uses useReducer for state management. Branching logic as data, questions as components — all in your own codebase.
+
+quiz-ui is a React quiz builder that treats a quiz as data, not UI. You define a QuizDefinition object (id, entry step, array of step definitions) and wrap it in QuizRoot. The engine — a useReducer-based state machine — handles answer collection, branching resolution, and progress calculation. Your job is styling the questions.
+
+## Quiz Builder Component Library — Reusable Quiz Components
+
+URL: https://quiz-ui-phi.vercel.app/quiz-builder-component-library
+Description: A component library for building quizzes in React. Drop in question types, progress bars, navigation, and result screens.
+
+quiz-ui is a focused component library for quiz building. Instead of a giant UI kit, you get exactly the pieces a quiz funnel needs: a root provider, a step renderer, answer components for every common question type, a progress bar, navigation buttons, transitions, and a result screen. Install only what you use.
+
+## Quiz Components — Reusable Inputs for React
+
+URL: https://quiz-ui-phi.vercel.app/quiz-components
+Description: Reusable quiz components: radio groups, checkboxes, sliders, ratings, text inputs, and email fields — all headless and unstyled.
+
+quiz-ui provides a set of quiz components that cover every common question type: single-select choice, multi-select checkbox, image choice grid, numeric slider, star/numeric rating, free text, and validated email. Each component reads and writes its answer automatically via React context — you never pass value/onChange props.
+
+## Interactive Quiz Components — Engaging Inputs for React
+
+URL: https://quiz-ui-phi.vercel.app/interactive-quiz-components
+Description: Build interactive quizzes with draggable sliders, clickable rating scales, and animated transitions between questions.
+
+Interactive quiz components keep users engaged. quiz-ui provides a slider with a live value display, a rating scale with click-to-select buttons, image choice cards with visual feedback, and a QuizTransition component that animates between steps using CSS animations.
+
+## Radix UI Quiz — Quiz Components Powered by Radix Primitives
+
+URL: https://quiz-ui-phi.vercel.app/radix-ui-quiz
+Description: A Radix UI quiz library. Each component wraps a Radix primitive — slider, radio group, toggle group, dialog, label, progress.
+
+Radix UI provides unstyled, accessible primitives. quiz-ui wraps those primitives into opinionated quiz components that handle the wiring so you don't have to: a QuizChoiceGroup is a RadioGroup with answer-state binding, a QuizSlider is a Slider that writes into the engine, and so on.
+
+## Multi Step Form — Build Multi-Step Question Flows in React
+
+URL: https://quiz-ui-phi.vercel.app/multi-step-form
+Description: Build a multi step form with branching logic in React. Progress bar, back/next navigation, and validation per step.
+
+A multi step form breaks a long form into digestible chunks, reducing abandonment and improving completion rates. quiz-ui handles the plumbing: a step-by-step flow with a progress indicator, back/next navigation that auto-disables until a step is answered, and branching to skip irrelevant questions.
+
+## Multi Step Form Builder — Form Wizards in React
+
+URL: https://quiz-ui-phi.vercel.app/multi-step-form-builder
+Description: A multi step form builder for React. Define steps as data, render with headless components, and collect answers at the end.
+
+quiz-ui acts as a multi step form builder: you define the form as a list of step objects (each with a type and props), and the engine handles the user's journey through them. It tracks which steps have been visited, computes progress, and collects all answers into a single object at the end.
+
+## Multi Step Quiz — Interactive Quizzes for React
+
+URL: https://quiz-ui-phi.vercel.app/multi-step-quiz
+Description: Create a multi step quiz in React. Add questions one at a time, show progress, and display results at the end.
+
+A multi step quiz presents one question at a time, keeping the user focused and reducing cognitive load. quiz-ui makes building one straightforward: define each question as a step with a type (choice, slider, rating, text, email), and the engine handles the rest.
+
+## Branching Quiz — Quiz Funnels That Route Based on Answers
+
+URL: https://quiz-ui-phi.vercel.app/branching-quiz
+Description: Build a branching quiz where answers determine the next question. Define branch rules as data — no spaghetti code.
+
+A branching quiz changes its path depending on what the user answers. In quiz-ui, branching is data-driven: each step can declare a branch array of rules (if answer equals X, go to step Y). Rules evaluate in order; the first match wins; if no rule matches, the step's next fallback is used.
+
+## Branching Logic Form — Conditional Question Routing in React
+
+URL: https://quiz-ui-phi.vercel.app/branching-logic-form
+Description: Add branching logic to multi-step forms. Show or skip questions based on previous answers — all driven by a data object.
+
+Branching logic lets your form adapt to each user. quiz-ui implements it through branch rules on each step: if a previous answer matches a value, jump to a specific step. Rules are serializable, predictable, and isolated from the UI — change the branching without touching a single component.
+
+## Conditional Form — Show or Skip Form Fields Based on Answers
+
+URL: https://quiz-ui-phi.vercel.app/conditional-form
+Description: Build a conditional form in React where fields appear or hide depending on previous answers. Data-driven, no spaghetti code.
+
+A conditional form adapts to each user's answers: skip irrelevant questions, show deeper follow-ups only when needed, and keep the experience tight. quiz-ui handles this with branch rules on each step — the form flows where the answers lead.
+
+## Conditional Quiz — Quizzes That Adapt to Every Answer
+
+URL: https://quiz-ui-phi.vercel.app/conditional-quiz
+Description: Build a conditional quiz where each question depends on previous answers. Branch to different paths dynamically.
+
+A conditional quiz feels personal because it responds to the user's answers. quiz-ui makes this easy: define branch rules on any step, and the engine routes the user to the most relevant follow-up question. No answer is wasted — every choice can change the path.
+
+## Multi Step Survey — Build Survey Funnels in React
+
+URL: https://quiz-ui-phi.vercel.app/multi-step-survey
+Description: Create a multi step survey in React. One question per screen, progress tracking, and branching based on responses.
+
+A multi step survey keeps respondents engaged by showing one question at a time. quiz-ui's step-by-step architecture is ideal for surveys: each question is a step, answer collection is automatic, and the result screen (or onComplete callback) delivers all responses at once.
+
+## Lead Generation Quiz — Convert Visitors into Qualified Leads
+
+URL: https://quiz-ui-phi.vercel.app/lead-generation-quiz
+Description: Build a lead generation quiz with branching logic. Segment your audience, capture emails, and send enriched data to your CRM.
+
+A lead generation quiz does what a static form can't: it engages visitors, qualifies them through targeted questions, and captures their contact details at peak interest. quiz-ui provides the front-end components — question steps, an email input with validation, and a result screen — while you own the data pipeline.
+
+## Lead Capture Quiz — Capture Emails with Questions
+
+URL: https://quiz-ui-phi.vercel.app/lead-capture-quiz
+Description: Build a lead capture quiz that collects emails after engaging users with questions. Higher opt-in rates than static forms.
+
+A lead capture quiz earns the right to ask for an email. The user answers a few questions, gets a personalized result, and only then is asked for their contact details. This pattern consistently outperforms upfront lead forms. quiz-ui gives you the question components and an email validation step — you design the flow.
+
+## Lead Qualification Quiz — Qualify Prospects
+
+URL: https://quiz-ui-phi.vercel.app/lead-qualification-quiz
+Description: Build a lead qualification quiz that scores prospects based on their answers. Route high-intent leads to sales automatically.
+
+A lead qualification quiz separates serious prospects from casual browsers. quiz-ui handles the question flow and branching — each answer can route the user to a different path, and the onComplete callback receives all answers so you can score, tag, and route the lead to your CRM or sales team.
+
+## Quiz Lead Generation — Generate Qualified Leads
+
+URL: https://quiz-ui-phi.vercel.app/quiz-lead-generation
+Description: Quiz lead generation strategy: build engaging question flows that segment your audience and capture qualified contact details.
+
+Quiz lead generation turns your website into a qualification engine. Instead of a generic 'Contact Us' form, a multi-step quiz asks targeted questions that both engage the visitor and collect actionable data. quiz-ui handles the technical side — you focus on the questions that matter to your business.
+
+## Lead Gen Form — Replace Static Forms with Quizzes
+
+URL: https://quiz-ui-phi.vercel.app/lead-gen-form
+Description: Replace your lead gen form with an interactive quiz. Higher engagement, better data, more qualified leads.
+
+Static lead gen forms ask for everything upfront. An interactive lead gen form — a quiz — builds engagement first, then captures the lead. quiz-ui provides the components to build this pattern in React: question steps, an email capture step, and a result screen that can trigger your CRM.
+
+## Quiz to Capture Leads — Interactive Lead Capture
+
+URL: https://quiz-ui-phi.vercel.app/quiz-to-capture-leads
+Description: Use a quiz to capture leads on your website. Engage visitors with questions, then collect their email at peak interest.
+
+Using a quiz to capture leads follows a proven pattern: engage → qualify → capture. quiz-ui makes the technical side straightforward — the QuizDefinition defines the flow, the components render the UI, and the onComplete callback hands you the collected answers and contact details.
+
+## Interactive Lead Form — Engaging Question Flows
+
+URL: https://quiz-ui-phi.vercel.app/interactive-lead-form
+Description: Build an interactive lead form with branching questions, progress tracking, and validated email capture in React.
+
+An interactive lead form replaces a flat list of fields with an engaging, step-by-step experience. quiz-ui's components — choice cards, sliders, rating scales, text and email inputs — give you the building blocks. The engine tracks progress and collects answers automatically.
+
+## Quiz Funnel Lead Gen — Full-Funnel Lead Generation
+
+URL: https://quiz-ui-phi.vercel.app/quiz-funnel-lead-gen
+Description: Build a complete quiz funnel lead gen system. Engage, qualify, capture, and route — all with React components you own.
+
+A quiz funnel lead gen system replaces your entire top-of-funnel with an interactive experience: engage visitors with a targeted question, qualify them through branching, capture their contact details, and route them to the right follow-up. quiz-ui provides the front-end stack for this pattern.
+
+## Recommendation Quiz — Product Recommendation Quiz Builder
+
+URL: https://quiz-ui-phi.vercel.app/recommendation-quiz
+Description: Build a recommendation quiz that matches products to customers. Branching logic routes answers to personalized results.
+
+A recommendation quiz helps customers find the right product by asking targeted questions and routing them to a personalized result. quiz-ui handles the question flow and branching — each answer can lead to a different product recommendation, shown on the result screen.
+
+## Personality Quiz Builder — Type-Based Quizzes
+
+URL: https://quiz-ui-phi.vercel.app/personality-quiz-builder
+Description: Build a personality quiz in React. Score answers, assign personality types, and display custom result pages.
+
+A personality quiz builder needs scoring, type assignment, and custom result pages. quiz-ui handles the question flow — you handle the scoring in your onComplete callback, then display the result using QuizResult. The components stay clean; the logic lives where it belongs.
+
+## Assessment Quiz — Scored Knowledge Tests
+
+URL: https://quiz-ui-phi.vercel.app/assessment-quiz
+Description: Build an assessment quiz in React. Score answers automatically, show pass/fail results, and generate completion certificates.
+
+An assessment quiz evaluates knowledge or readiness. quiz-ui provides the question components — choice, slider, rating, text — and the engine collects answers. In your onComplete callback, compute a score, determine pass/fail, and display the result. For certification, generate a PDF or trigger a server action.
+
+## Diagnostic Quiz — Interactive Problem-Diagnosis Quizzes
+
+URL: https://quiz-ui-phi.vercel.app/diagnostic-quiz
+Description: Build a diagnostic quiz that identifies problems and recommends solutions. Branching logic routes to specific diagnoses.
+
+A diagnostic quiz walks users through a decision tree: answer questions about symptoms or challenges, and the quiz identifies the root cause and recommends a solution. quiz-ui's branching engine is built for this — each answer routes to a more specific follow-up, narrowing down the diagnosis.
+
+## Product Recommendation Quiz — Match Products to Needs
+
+URL: https://quiz-ui-phi.vercel.app/product-recommendation-quiz
+Description: Build a product recommendation quiz for your ecommerce store. Ask questions, match answers to products, and boost conversions.
+
+A product recommendation quiz replaces a crowded product grid with a guided experience. quiz-ui lets you build the question flow: ask about use case, budget, and preferences, then branch to a result that shows the best-matching products. The components are headless — style them to match your store.
+
+## Ecommerce Quiz — Interactive Product Finders
+
+URL: https://quiz-ui-phi.vercel.app/ecommerce-quiz
+Description: Build an ecommerce quiz that helps shoppers find the right product. Increase conversion rate and average order value.
+
+An ecommerce quiz — also called a product finder or shopping assistant — guides shoppers to the right product through a series of questions. quiz-ui gives you the interactive front-end: choice questions, image selection, a slider for budget, and a result screen showing matching products.
+
+## Onboarding Quiz — Interactive User Onboarding
+
+URL: https://quiz-ui-phi.vercel.app/onboarding-quiz
+Description: Build an onboarding quiz that personalizes the user experience. Ask questions during signup and customize the initial setup.
+
+An onboarding quiz replaces generic welcome screens with targeted questions that personalise the first-run experience. quiz-ui components can render inline in your signup flow — ask about goals, preferences, and skill level, then use the answers to customize the user's dashboard or setup.
+
+## Quiz Landing Page — High-Converting Landing Pages
+
+URL: https://quiz-ui-phi.vercel.app/quiz-landing-page
+Description: Build a quiz landing page that converts. Replace static hero sections with an interactive question flow.
+
+A quiz landing page puts the interactive experience front and center — no scrolling past a hero, no hunting for a CTA. quiz-ui lets you embed a QuizRoot directly on your landing page. The first question is the hook; the email step captures the lead; the result screen delivers the payoff.
+
+## Quiz Definition JSON — Define Quizzes as Data, Not Code
+
+URL: https://quiz-ui-phi.vercel.app/quiz-definition-json
+Description: Define your entire quiz funnel as a JSON-serializable QuizDefinition object. Branching, steps, and props — all in one place.
+
+A QuizDefinition is a plain JavaScript object that describes every step of a quiz funnel: the entry point, the list of steps (each with an id, type, optional branch rules, and props), and the connections between them. Because it's pure data, you can store it in a config file, generate it with AI, or load it from a CMS.
+
+## AI Quiz Generator — Generate Quiz Funnels with LLM Prompts
+
+URL: https://quiz-ui-phi.vercel.app/ai-quiz-generator
+Description: Use AI to generate quiz funnels. Copy a prompt from the examples, paste it into an LLM, and get a working QuizDefinition and component code.
+
+quiz-ui is designed for AI-assisted development. Every component example includes a copy-paste prompt you can feed to an LLM. The AI generates a complete QuizDefinition plus the JSX that renders it — ready to drop into your project. No drag-and-drop, no manual wiring.
+
+## Web2Web Builder — AI-Powered No-Code Quiz Funnel Generation
+
+URL: https://quiz-ui-phi.vercel.app/web2web-builder
+Description: A web2web builder for quiz funnels: describe what you want in plain English and an AI generates the complete QuizDefinition and React components.
+
+A web2web builder turns a natural-language description into a working web application. quiz-ui is built for this workflow: the QuizDefinition object is a serializable format that LLMs can generate. Describe your quiz funnel in plain English — 'a 3-step fitness quiz with a slider for budget and an email capture' — and the AI outputs ready-to-use React code.
+
+## Generate Quiz with AI — AI-Assisted Development
+
+URL: https://quiz-ui-phi.vercel.app/generate-quiz-with-ai
+Description: Generate a complete quiz with AI. Copy a prompt, get a working QuizDefinition and component code back in seconds.
+
+Generating a quiz with AI is fast when the target library is designed for it. quiz-ui uses predictable naming (Quiz + Noun), serializable definitions, and clear prop contracts — all things LLMs handle reliably. The examples section includes ready-to-use prompts for every component type.
+
+## Headless Components — Unstyled, Accessible UI Primitives
+
+URL: https://quiz-ui-phi.vercel.app/headless-components
+Description: Headless components for React: no colors, no borders, no opinions. Style every pixel yourself with Tailwind or CSS.
+
+Headless components separate behavior from presentation. quiz-ui's components carry only the structural classes Radix needs — positioning, layout, and interaction states. Everything visual (colors, borders, shadows, spacing) is yours to define through className props.
+
+## Quiz Framework — A Lightweight Quiz Engine for React
+
+URL: https://quiz-ui-phi.vercel.app/quiz-framework
+Description: A quiz framework built on a useReducer state machine. Handles branching, progress, and answer collection — less than 200 lines.
+
+quiz-ui's core is a lightweight quiz framework: a single useReducer-based state machine that handles step transitions, branching resolution, answer collection, and progress calculation. The entire engine is under 200 lines of TypeScript — read it, understand it, extend it.
+
+## Customizable Quiz — Fully Themable Quiz Components for React
+
+URL: https://quiz-ui-phi.vercel.app/customizable-quiz
+Description: Build a fully customizable quiz. Every component accepts className props — change colors, borders, spacing, and animations.
+
+A customizable quiz means you're not stuck with someone else's design. quiz-ui components expose granular className props: style the track, range, and thumb of a slider independently; change the active and inactive states of choice cards; theme the progress bar. Nothing is hardcoded.
+
+## Quiz Engine — A useReducer State Machine for Quiz Funnels
+
+URL: https://quiz-ui-phi.vercel.app/quiz-engine
+Description: A standalone quiz engine for React. Handles branching, answer collection, progress tracking, and step transitions.
+
+The quiz engine is the brain of quiz-ui: a useReducer-based state machine that lives inside QuizProvider. It manages the current step, the answer map, the visit history, and the funnel status. Components read from it via hooks — useQuizStep, useQuizAnswers, useQuizEngine — and never touch the state directly.
