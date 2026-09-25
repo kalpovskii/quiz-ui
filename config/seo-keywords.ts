@@ -31,7 +31,7 @@ export const seoPages: SeoPageEntry[] = [
   {
     slug: "quiz-funnel",
     keyword: "quiz funnel",
-    title: "Quiz Funnel — Build Multi-Step Quiz Funnels with Radix Components",
+    title: "Quiz Funnel — Build Multi-Step Quiz Funnels",
     description:
       "Build a quiz funnel with headless Radix components. Handle branching, progress, and result screens — all as plain source code.",
     intro:
@@ -65,7 +65,7 @@ export const seoPages: SeoPageEntry[] = [
   {
     slug: "quiz-funnel-software",
     keyword: "quiz funnel software",
-    title: "Quiz Funnel Software — Open Source Alternative to SaaS Quizzes",
+    title: "Quiz Funnel Software — Open Source Alternative",
     description:
       "Quiz funnel software that lives in your repo, not on someone else's server. Full control, zero subscription, built on Radix UI primitives.",
     intro:
@@ -82,7 +82,7 @@ export const seoPages: SeoPageEntry[] = [
   {
     slug: "quiz-funnel-examples",
     keyword: "quiz funnel examples",
-    title: "Quiz Funnel Examples — Interactive Demos Built with Radix UI",
+    title: "Quiz Funnel Examples — Live Interactive Demos",
     description:
       "Live quiz funnel examples built with headless Radix components. See slider, rating, choice, and email inputs working together with branching and progress.",
     intro:
@@ -116,7 +116,7 @@ export const seoPages: SeoPageEntry[] = [
   {
     slug: "quiz-funnel-for-lead-generation",
     keyword: "quiz funnel for lead generation",
-    title: "Quiz Funnel for Lead Generation — Capture Leads with Interactive Quizzes",
+    title: "Quiz Funnel for Lead Generation — Capture Qualified Leads",
     description:
       "Build a quiz funnel for lead generation. Capture emails, qualify leads with branching logic, and send enriched data to your CRM.",
     intro:
@@ -218,7 +218,7 @@ export const seoPages: SeoPageEntry[] = [
   {
     slug: "quiz-marketing-funnel",
     keyword: "quiz marketing funnel",
-    title: "Quiz Marketing Funnel — Interactive Marketing Quizzes for React",
+    title: "Quiz Marketing Funnel — Interactive Marketing Quizzes",
     description:
       "Build a quiz marketing funnel that segments your audience and captures qualified leads. Headless Radix components, zero SaaS fees.",
     intro:
@@ -237,7 +237,7 @@ export const seoPages: SeoPageEntry[] = [
   {
     slug: "quiz-builder",
     keyword: "quiz builder",
-    title: "Quiz Builder — Headless React Components for Building Quizzes",
+    title: "Quiz Builder — Headless React Components",
     description:
       "A quiz builder that ships as source code. Build single-select, multi-select, slider, rating, and text input questions with Radix primitives.",
     intro:
@@ -356,7 +356,7 @@ export const seoPages: SeoPageEntry[] = [
   {
     slug: "quiz-components",
     keyword: "quiz components",
-    title: "Quiz Components — Reusable Question Inputs for React Quizzes",
+    title: "Quiz Components — Reusable Inputs for React",
     description:
       "Reusable quiz components: radio groups, checkboxes, sliders, ratings, text inputs, and email fields — all headless and unstyled.",
     intro:
@@ -373,7 +373,7 @@ export const seoPages: SeoPageEntry[] = [
   {
     slug: "interactive-quiz-components",
     keyword: "interactive quiz components",
-    title: "Interactive Quiz Components — Engaging Question Inputs for React",
+    title: "Interactive Quiz Components — Engaging Inputs for React",
     description:
       "Build interactive quizzes with draggable sliders, clickable rating scales, and animated transitions between questions.",
     intro:
@@ -426,7 +426,7 @@ export const seoPages: SeoPageEntry[] = [
   {
     slug: "multi-step-form-builder",
     keyword: "multi step form builder",
-    title: "Multi Step Form Builder — Build Form Wizards with React Components",
+    title: "Multi Step Form Builder — Form Wizards in React",
     description:
       "A multi step form builder for React. Define steps as data, render with headless components, and collect answers at the end.",
     intro:
@@ -443,7 +443,7 @@ export const seoPages: SeoPageEntry[] = [
   {
     slug: "multi-step-quiz",
     keyword: "multi step quiz",
-    title: "Multi Step Quiz — Build Interactive Quizzes with Multiple Questions",
+    title: "Multi Step Quiz — Interactive Quizzes for React",
     description:
       "Create a multi step quiz in React. Add questions one at a time, show progress, and display results at the end.",
     intro:
@@ -528,7 +528,7 @@ export const seoPages: SeoPageEntry[] = [
   {
     slug: "multi-step-survey",
     keyword: "multi step survey",
-    title: "Multi Step Survey — Build Survey Funnels with React Components",
+    title: "Multi Step Survey — Build Survey Funnels in React",
     description:
       "Create a multi step survey in React. One question per screen, progress tracking, and branching based on responses.",
     intro:
@@ -564,7 +564,7 @@ export const seoPages: SeoPageEntry[] = [
   {
     slug: "lead-capture-quiz",
     keyword: "lead capture quiz",
-    title: "Lead Capture Quiz — Capture Emails with Interactive Questions",
+    title: "Lead Capture Quiz — Capture Emails with Questions",
     description:
       "Build a lead capture quiz that collects emails after engaging users with questions. Higher opt-in rates than static forms.",
     intro:
@@ -581,7 +581,7 @@ export const seoPages: SeoPageEntry[] = [
   {
     slug: "lead-qualification-quiz",
     keyword: "lead qualification quiz",
-    title: "Lead Qualification Quiz — Qualify Prospects with Branching Logic",
+    title: "Lead Qualification Quiz — Qualify Prospects",
     description:
       "Build a lead qualification quiz that scores prospects based on their answers. Route high-intent leads to sales automatically.",
     intro:
@@ -598,7 +598,7 @@ export const seoPages: SeoPageEntry[] = [
   {
     slug: "quiz-lead-generation",
     keyword: "quiz lead generation",
-    title: "Quiz Lead Generation — Generate Leads with Interactive Quizzes",
+    title: "Quiz Lead Generation — Generate Qualified Leads",
     description:
       "Quiz lead generation strategy: build engaging question flows that segment your audience and capture qualified contact details.",
     intro:
@@ -615,7 +615,7 @@ export const seoPages: SeoPageEntry[] = [
   {
     slug: "lead-gen-form",
     keyword: "lead gen form",
-    title: "Lead Gen Form — Replace Static Forms with Interactive Quiz Flows",
+    title: "Lead Gen Form — Replace Static Forms with Quizzes",
     description:
       "Replace your lead gen form with an interactive quiz. Higher engagement, better data, more qualified leads.",
     intro:
@@ -632,7 +632,7 @@ export const seoPages: SeoPageEntry[] = [
   {
     slug: "quiz-to-capture-leads",
     keyword: "quiz to capture leads",
-    title: "Quiz to Capture Leads — Interactive Lead Capture for Your Website",
+    title: "Quiz to Capture Leads — Interactive Lead Capture",
     description:
       "Use a quiz to capture leads on your website. Engage visitors with questions, then collect their email at peak interest.",
     intro:
@@ -649,7 +649,7 @@ export const seoPages: SeoPageEntry[] = [
   {
     slug: "interactive-lead-form",
     keyword: "interactive lead form",
-    title: "Interactive Lead Form — Engaging Question Flows That Capture Leads",
+    title: "Interactive Lead Form — Engaging Question Flows",
     description:
       "Build an interactive lead form with branching questions, progress tracking, and validated email capture in React.",
     intro:
@@ -666,7 +666,7 @@ export const seoPages: SeoPageEntry[] = [
   {
     slug: "quiz-funnel-lead-gen",
     keyword: "quiz funnel lead gen",
-    title: "Quiz Funnel Lead Gen — Full-Funnel Lead Generation with Quizzes",
+    title: "Quiz Funnel Lead Gen — Full-Funnel Lead Generation",
     description:
       "Build a complete quiz funnel lead gen system. Engage, qualify, capture, and route — all with React components you own.",
     intro:
@@ -702,7 +702,7 @@ export const seoPages: SeoPageEntry[] = [
   {
     slug: "personality-quiz-builder",
     keyword: "personality quiz builder",
-    title: "Personality Quiz Builder — Build 'Which Type Are You?' Quizzes",
+    title: "Personality Quiz Builder — Type-Based Quizzes",
     description:
       "Build a personality quiz in React. Score answers, assign personality types, and display custom result pages.",
     intro:
@@ -719,7 +719,7 @@ export const seoPages: SeoPageEntry[] = [
   {
     slug: "assessment-quiz",
     keyword: "assessment quiz",
-    title: "Assessment Quiz — Build Scored Assessments and Knowledge Tests",
+    title: "Assessment Quiz — Scored Knowledge Tests",
     description:
       "Build an assessment quiz in React. Score answers automatically, show pass/fail results, and generate completion certificates.",
     intro:
@@ -753,7 +753,7 @@ export const seoPages: SeoPageEntry[] = [
   {
     slug: "product-recommendation-quiz",
     keyword: "product recommendation quiz",
-    title: "Product Recommendation Quiz — Match Products to Customer Needs",
+    title: "Product Recommendation Quiz — Match Products to Needs",
     description:
       "Build a product recommendation quiz for your ecommerce store. Ask questions, match answers to products, and boost conversions.",
     intro:
@@ -770,7 +770,7 @@ export const seoPages: SeoPageEntry[] = [
   {
     slug: "ecommerce-quiz",
     keyword: "ecommerce quiz",
-    title: "Ecommerce Quiz — Interactive Product Finders for Online Stores",
+    title: "Ecommerce Quiz — Interactive Product Finders",
     description:
       "Build an ecommerce quiz that helps shoppers find the right product. Increase conversion rate and average order value.",
     intro:
@@ -787,7 +787,7 @@ export const seoPages: SeoPageEntry[] = [
   {
     slug: "onboarding-quiz",
     keyword: "onboarding quiz",
-    title: "Onboarding Quiz — Interactive User Onboarding with Questions",
+    title: "Onboarding Quiz — Interactive User Onboarding",
     description:
       "Build an onboarding quiz that personalizes the user experience. Ask questions during signup and customize the initial setup.",
     intro:
@@ -804,7 +804,7 @@ export const seoPages: SeoPageEntry[] = [
   {
     slug: "quiz-landing-page",
     keyword: "quiz landing page",
-    title: "Quiz Landing Page — High-Converting Landing Pages with Quizzes",
+    title: "Quiz Landing Page — High-Converting Landing Pages",
     description:
       "Build a quiz landing page that converts. Replace static hero sections with an interactive question flow.",
     intro:
@@ -874,7 +874,7 @@ export const seoPages: SeoPageEntry[] = [
   {
     slug: "generate-quiz-with-ai",
     keyword: "generate quiz with ai",
-    title: "Generate Quiz with AI — AI-Assisted Quiz Development for React",
+    title: "Generate Quiz with AI — AI-Assisted Development",
     description:
       "Generate a complete quiz with AI. Copy a prompt, get a working QuizDefinition and component code back in seconds.",
     intro:

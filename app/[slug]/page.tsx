@@ -23,6 +23,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: page.title,
     description: page.description,
+    alternates: {
+      canonical: `https://quiz-ui-phi.vercel.app/${page.slug}`,
+    },
+    openGraph: {
+      title: page.title,
+      description: page.description,
+      url: `https://quiz-ui-phi.vercel.app/${page.slug}`,
+      siteName: "quiz-ui",
+      type: "website",
+    },
+    twitter: {
+      card: "summary",
+      title: page.title,
+      description: page.description,
+    },
   };
 }
 
