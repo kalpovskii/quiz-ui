@@ -67,7 +67,7 @@ export function ChoiceExample() {
         className="flex flex-col gap-2"
         itemClassName="flex w-full items-center gap-3 rounded-lg border px-4 py-3 text-left cursor-pointer transition-colors hover:bg-muted/50"
         activeItemClassName="border-violet-500 bg-violet-50/70 dark:bg-violet-950/30"
-        indicatorClassName="flex h-4 w-4 items-center justify-center rounded-full border-2 border-muted-foreground"
+        indicatorClassName="flex h-2 w-2 sm:h-4 sm:w-4 items-center justify-center rounded-full border-2 border-muted-foreground"
         labelClassName="font-medium text-sm"
         descriptionClassName="text-xs text-muted-foreground"
       />
